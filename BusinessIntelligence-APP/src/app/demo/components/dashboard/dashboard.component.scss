@@ -1,0 +1,15 @@
+.pickdate{
+    // background: var(--surface-card);
+    background-color: rgb(94, 80, 80);
+    border: 1px solid var(--surface-border);
+    box-shadow: var(--card-shadow);
+    border-radius: 25px;
+    height: 2.8rem;
+    width: 25rem;
+}
+
+@media (max-width: 991px) {
+    .pickdate {
+        width: 100%;
+    }
+}

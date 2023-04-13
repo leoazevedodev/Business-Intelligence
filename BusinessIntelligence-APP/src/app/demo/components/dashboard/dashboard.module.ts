@@ -19,6 +19,7 @@ import { AppConfigModule } from "../../../layout/config/config.module";
 import {DividerModule} from 'primeng/divider';
 import { DatapickerComponent } from "../datapicker/datapicker.component";
 import {TabViewModule} from 'primeng/tabview';
+import { SplitterModule } from 'primeng/splitter';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import {TabViewModule} from 'primeng/tabview';
         InputTextModule,
         AppConfigModule,
         DividerModule,
+        SplitterModule,
         TabViewModule
         
     ]

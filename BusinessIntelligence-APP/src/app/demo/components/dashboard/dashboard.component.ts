@@ -7,6 +7,7 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 @Component({
     templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss'],
     providers: [DialogService, MessageService]
 })
 export class DashboardComponent implements OnInit {

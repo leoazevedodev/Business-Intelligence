@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: $scale;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--surface-ground);
+    font-family: 'Quicksand';
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Quicksand';
+    // color: var(--primary-color);
+}
+
+.layout-wrapper {
+    min-height: 100vh;
+}
+
+// td, th, tr {
+//     font-family: 'Quicksand'; 
+// }
+
+
+// span {
+//     font-family: 'Quicksand';
+//     font-style: normal;
+//     font-weight: 300;
+//   }

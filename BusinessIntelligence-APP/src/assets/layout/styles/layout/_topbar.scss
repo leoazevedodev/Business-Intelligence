@@ -64,7 +64,7 @@
     
 
     .layout-menu-button {
-        margin-left: -2rem;
+        margin-left: 0rem;
     }
 
     .layout-topbar-menu-button {
@@ -123,7 +123,7 @@
             animation: scalein 0.15s linear;
 
             &.layout-topbar-menu-mobile-active {
-                display: block
+                display: block;
             }
 
             .layout-topbar-button {

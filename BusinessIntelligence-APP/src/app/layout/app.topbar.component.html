@@ -1,16 +1,10 @@
 <div class="layout-topbar">
 
-    <!-- <a class="layout-topbar-logo" routerLink="">
-        <img src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="logo">
-        <img src="./../../assets/layout/images/logo.png">
-        <span>Business Intelligence</span>
-    </a> -->
-
-
-
     <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
         <i class="pi pi-bars"></i>
     </button>
+
+    <div class="layout-topbar-text">Home</div>
 
     <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button" (click)="layoutService.showProfileSidebar()">
         <i class="pi pi-ellipsis-v"></i>
@@ -34,3 +28,11 @@
         </button>
     </div>
 </div>
+
+
+
+    <!-- <a class="layout-topbar-logo" routerLink="">
+        <img src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="logo">
+        <img src="./../../assets/layout/images/logo.png">
+        <span>Business Intelligence</span>
+    </a> -->

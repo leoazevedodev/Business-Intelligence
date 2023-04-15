@@ -10,11 +10,12 @@
         <i class="pi pi-ellipsis-v"></i>
     </button>
 
-    <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
-        
-        
-        
-        <button class="p-link layout-topbar-button">
+    <div #topbarmenu class="layout-topbar-menu">
+        <img class="layout-topbar-button" src="./../../assets/layout/images/persona.jpg">
+    </div>
+</div>
+
+        <!-- <button class="p-link layout-topbar-button">
             <i class="pi pi-bell"></i>
             <span>Notificações</span>
         </button>
@@ -25,14 +26,4 @@
         <button (click)="logout()" class="p-link layout-topbar-button">
             <i class="pi pi-sign-out"></i>
             <span>Logout</span>
-        </button>
-    </div>
-</div>
-
-
-
-    <!-- <a class="layout-topbar-logo" routerLink="">
-        <img src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="logo">
-        <img src="./../../assets/layout/images/logo.png">
-        <span>Business Intelligence</span>
-    </a> -->
+        </button> -->

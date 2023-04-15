@@ -6,3 +6,11 @@
     padding-top: 1rem;
     border-top: 1px solid #31374a;
 }
+
+
+@media (max-width: 991px) {
+    .layout-footer
+    {
+        display: none;
+    }
+}

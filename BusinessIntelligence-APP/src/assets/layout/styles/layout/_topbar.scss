@@ -6,7 +6,9 @@
     top: 0;
     width: 100%;
     padding: 0 2rem;
-    background-color: var(--surface-card);
+    // background-color: var(--surface-card);
+    background: #141824;
+    border-bottom: 1px solid #31374a;
     transition: left $transitionDuration;
     display: flex;
     align-items: center;
@@ -17,7 +19,8 @@
         flex-grow: 1; /* Faz com que o texto preencha todo o espaço disponível */
         font-size: 2rem;
         font-weight: 500;
-        color: var(--surface-900);
+        // color: var(--surface-900);
+        color: white;
 
         &:focus {
             @include focused();
@@ -49,7 +52,8 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        color: var(--text-color-secondary);
+        // color: var(--text-color-secondary);
+        color: white;
         border-radius: 50%;
         width: 3rem;
         height: 3rem;

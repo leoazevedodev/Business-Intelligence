@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apiUrl: 'https://alphabiapiv2.azurewebsites.net/'
+  apiUrl: ''
 };
 
 export const CHECK_IN = 'CHECK_IN';

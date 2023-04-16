@@ -17,6 +17,7 @@ import { AppFooterComponent } from './app.footer.component';
 import { AppSidebarComponent } from "./app.sidebar.component";
 import { AppLayoutComponent } from "./app.layout.component";
 import { CalendarModule } from 'primeng/calendar';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import { CalendarModule } from 'primeng/calendar';
         InputSwitchModule,
         RippleModule,
         RouterModule,
-        CalendarModule
+        CalendarModule,
+        OverlayPanelModule
     ],
     exports: [AppLayoutComponent]
 })

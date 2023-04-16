@@ -1,3 +1,36 @@
+<p-overlayPanel [style]="{'background': '#141824', 'height': '25rem', 'width': '20rem', 'border':' 1px solid #31374a'}" #op>
+    <div class="profile-container">
+        <img class="layout-topbar-button" src="./../../assets/layout/images/persona.jpg">
+        <span class="profile-name">Leo Azevedo</span>
+      </div>
+
+    <div class="divider"></div>
+    <div class="grid">
+        <div class="col-12 md:col-12 lg:col-12">
+            <p-button [style]="{'width': '100%', 'height': '2rem', 'margin-bottom': '0.5rem', 'margin-top': '0.5rem', 'background': 'transparent', 'border':'transparent'}">
+                <i class="pi pi-bell" pBadge value="2"></i><span class="pad">Notificações</span>
+            </p-button>
+            <p-button [style]="{'width': '100%', 'height': '2rem', 'margin-bottom': '0.5rem', 'margin-top': '0.5rem', 'background': 'transparent', 'border':'transparent'}">
+                <i class="pi pi-user"></i><span class="pad">Perfil</span>
+            </p-button>
+            <p-button [style]="{'width': '100%', 'height': '2rem', 'margin-bottom': '0.5rem', 'margin-top': '0.5rem', 'background': 'transparent', 'border':'transparent'}">
+                <i class="pi pi-user"></i><span class="pad">Perfil</span>
+            </p-button>
+            <p-button [style]="{'width': '100%', 'height': '2rem', 'margin-bottom': '0.0rem', 'margin-top': '0.5rem', 'background': 'transparent', 'border':'transparent'}">
+                <i class="pi pi-user"></i><span class="pad">Perfil</span>
+            </p-button>
+        </div>
+    </div>
+    <div class="divider"></div>
+
+    <p-button [style]="{'width': '100%', 'height': '3rem', 'margin-bottom': '0.0rem', 'margin-top': '0.5rem', 'background': '#0b0c13', 'border':' 1px solid #31374a'}">
+        <div class="space">
+            <i class="pi pi-sign-out"></i><span class="pad">Sair</span>
+        </div>
+    </p-button>
+
+</p-overlayPanel>
+
 <div class="layout-topbar">
 
     <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
@@ -11,7 +44,7 @@
     </button>
 
     <div #topbarmenu class="layout-topbar-menu">
-        <img class="layout-topbar-button" src="./../../assets/layout/images/persona.jpg">
+        <img pBadge value="2" (click)="op.toggle($event)" class="layout-topbar-button" src="./../../assets/layout/images/persona.jpg">
     </div>
 </div>
 

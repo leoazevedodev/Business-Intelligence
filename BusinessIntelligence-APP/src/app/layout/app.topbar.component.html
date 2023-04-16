@@ -1,4 +1,9 @@
-<p-overlayPanel [style]="{'background': '#141824', 'height': '25rem', 'width': '20rem', 'border':' 1px solid #31374a'}" #op>
+<p-overlayPanel 
+    [hideTransitionOptions]="'1.2s cubic-bezier(0, 0, 0.2, 1)'" 
+    [showTransitionOptions]="'0.7s cubic-bezier(0, 0, 0.2, 1)'" 
+    [showCloseIcon]="false" 
+    [style]="{'background': '#141824', 'height': '25rem', 'width': '20rem', 'border':' 1px solid #31374a'}" #op>
+
     <div class="profile-container">
         <img class="layout-topbar-button" src="./../../assets/layout/images/persona.jpg">
         <span class="profile-name">Leo Azevedo</span>

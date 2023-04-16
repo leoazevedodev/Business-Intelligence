@@ -7,7 +7,9 @@
     width: 100%;
     padding: 0 2rem;
     // background-color: var(--surface-card);
-    background: #141824;
+    background: rgb(20,24,36);
+    background: linear-gradient(74deg, rgba(20,24,36,1) 24%, rgba(11,12,19,1) 82%, rgba(0,0,0,1) 100%);
+    // background: #141824;
     border-bottom: 1px solid #31374a;
     transition: left $transitionDuration;
     display: flex;

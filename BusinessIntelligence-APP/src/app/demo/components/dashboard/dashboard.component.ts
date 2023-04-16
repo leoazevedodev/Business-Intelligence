@@ -13,6 +13,9 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 export class DashboardComponent implements OnInit {
 
 
+    gaugeValue = 60.5;
+    gaugeAppendText = "%";
+    
     constructor(
                 public layoutService: LayoutService,
                 public messageService: MessageService,

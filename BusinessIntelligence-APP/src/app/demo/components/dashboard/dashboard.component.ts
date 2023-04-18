@@ -41,29 +41,30 @@ export class DashboardComponent implements OnInit {
             { name: 'Loja Defeitos', code: 'PRS' }
         ];
 
+        
+
         this.data = {
-            labels: ['01-07', '08-14', '15-21', '22-31'],
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
                 {
-                    label: 'First Dataset',
-                    data: [65, 59, 80, 81],
-                    fill: false,
-                    borderColor: 'black',
-                    tension: 0.4
+                    label: 'Meta',
+                    backgroundColor: ['rgba(133, 169, 255)'],
+                    borderColor: ['rgba(133, 169, 255)'],
+                    data: [65, 59, 80, 81, 56, 55, 40]
                 },
                 {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19],
-                    fill: false,
-                    borderColor: 'orange',
-                    tension: 0.4
+                    label: 'Venda',
+                    backgroundColor: ['rgba(133, 169, 255)'],
+                    borderColor: ['rgba(133, 169, 255)'],
+                    data: [28, 48, 40, 19, 86, 27, 90]
                 }
             ]
         };
 
+
         this.options = {
             maintainAspectRatio: false,
-            aspectRatio: 0.6,
+            aspectRatio: 0.8,
             plugins: {
                 legend: {
                     labels: {
@@ -74,7 +75,10 @@ export class DashboardComponent implements OnInit {
             scales: {
                 x: {
                     ticks: {
-                        color: 'white'
+                        color: 'white',
+                        font: {
+                            weight: 500
+                        }
                     },
                     grid: {
                         color: 'white',
@@ -90,8 +94,11 @@ export class DashboardComponent implements OnInit {
                         drawBorder: false
                     }
                 }
-            }
+            },
+            barPercentage: 0.1
         };
     }
-
 }
+
+        
+

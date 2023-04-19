@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
                 },
                 {
                     label: 'Venda',
-                    backgroundColor: ['rgba(133, 169, 255)'],
+                    backgroundColor: ['#31374a'],
                     borderColor: ['rgba(133, 169, 255)'],
                     data: [28, 48, 40, 19, 86, 27, 90]
                 }
@@ -81,7 +81,7 @@ export class DashboardComponent implements OnInit {
                         }
                     },
                     grid: {
-                        color: 'white',
+                        color: '#31374a',
                         drawBorder: false
                     }
                 },
@@ -90,7 +90,7 @@ export class DashboardComponent implements OnInit {
                         color: 'white'
                     },
                     grid: {
-                        color: 'white',
+                        color: '#31374a',
                         drawBorder: false
                     }
                 }

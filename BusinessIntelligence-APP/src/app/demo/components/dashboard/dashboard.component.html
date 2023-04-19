@@ -1,21 +1,3 @@
-    <!-- <div class="flex flex-wrap flex-row-reverse">
-        <div class="container">
-            <div class="texto">
-                <span class="">Selecione um Periodo</span>
-            </div>
-            <div class="pickdate">
-            
-            </div>
-        </div>
-        <div class="container">
-            <div class="texto">
-                <span class="">Selecione uma Loja</span>
-            </div>
-            <div class="flex align-items-center justify-content-center tamanho bg-yellow-500 font-bold m-2">
-            
-            </div>
-        </div>
-    </div> -->
     <div class="tam flex flex-wrap flex-row-reverse">
         <p-button class="button-search flex align-items-center justify-content-center" icon="pi pi-search" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
         <div class="container m-2">
@@ -161,6 +143,7 @@
 
         <div class="col-12 md:col-6 lg:col-9">
             <div class="card">
+                <span class="text-xl">Kpis</span>
                 <div class="flex justify-content-end flex-wrap">
                     <div class="flex align-items-center justify-content-center m-2">
                         <p-dropdown class="mb-3" [options]="cities" placeholder="Canal de Venda"  optionLabel="name"></p-dropdown>
@@ -230,7 +213,11 @@
                     </div>
                 </div>
                 <p-chart type="bar" [data]="data" [options]="options"></p-chart>
-
+            </div>
+            <div class="col-12 md:col-6 lg:col-9">
+                <div class="card">
+                    
+                </div>
             </div>
         </div>
     </div>

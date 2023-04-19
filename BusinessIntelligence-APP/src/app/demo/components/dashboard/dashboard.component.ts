@@ -44,19 +44,19 @@ export class DashboardComponent implements OnInit {
         
 
         this.data = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             datasets: [
                 {
                     label: 'Meta',
                     backgroundColor: ['rgba(133, 169, 255)'],
                     borderColor: ['rgba(133, 169, 255)'],
-                    data: [65, 59, 80, 81, 56, 55, 40]
+                    data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40]
                 },
                 {
                     label: 'Venda',
                     backgroundColor: ['#31374a'],
                     borderColor: ['rgba(133, 169, 255)'],
-                    data: [28, 48, 40, 19, 86, 27, 90]
+                    data: [28, 48, 40, 19, 86, 27, 90, 28, 48, 40, 19, 86, 27, 90]
                 }
             ]
         };

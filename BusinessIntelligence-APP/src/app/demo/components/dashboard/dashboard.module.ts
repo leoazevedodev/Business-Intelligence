@@ -23,6 +23,8 @@ import { SplitterModule } from 'primeng/splitter';
 import { NgxGaugeModule } from 'ngx-gauge';
 import { TagModule } from 'primeng/tag';
 import { DropdownModule } from 'primeng/dropdown';
+import { AvatarModule } from 'primeng/avatar';
+
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { DropdownModule } from 'primeng/dropdown';
         TabViewModule,
         NgxGaugeModule,
         TagModule,
-        DropdownModule
+        DropdownModule,
+        AvatarModule
         
     ]
 })

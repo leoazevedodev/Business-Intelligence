@@ -50,6 +50,7 @@ export class DashboardComponent implements OnInit {
                     label: 'Meta',
                     backgroundColor: ['rgba(133, 169, 255)'],
                     borderColor: ['rgba(133, 169, 255)'],
+                    fill: true, 
                     data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40]
                 },
                 {

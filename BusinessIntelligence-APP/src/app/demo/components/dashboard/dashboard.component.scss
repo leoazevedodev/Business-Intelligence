@@ -45,6 +45,85 @@
     }
 }
 
-.ui-dropdown-label {
-    color: #c22323;
+
+
+
+
+.bar-chart {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 100px;
+  }
+  
+  .bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 0.5rem;
+    background-color: rgb(96, 198, 255);
+    margin-right: 15px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    border-radius: 2rem;
+  }
+  
+  .bar:hover {
+    transform: translateY(-10px);
+  }
+  
+  .bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #27496d;
+    opacity: 0.5;
+  }
+  
+  .bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1b354f;
+    opacity: 0.5;
+    z-index: -1;
+  }
+  
+  .bar-label {
+    margin-top: 5px;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+  }
+  
+  .bar:not(:empty):after {
+    background-color: #d9d9d9;
+  }
+
+  .bar span {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    // background-color: rgba(0,0,0,0.8);
+    // padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .bar:hover span {
+    opacity: 1;
+  }
+  .bar-label {
+    font-size: 14px;
+    font-weight: bold;
   }

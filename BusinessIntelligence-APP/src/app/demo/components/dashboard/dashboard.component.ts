@@ -20,8 +20,10 @@ export class DashboardComponent implements OnInit {
     cities: any[] = [];
 
     data: any;
-
     options: any;
+
+    data2: any;
+    options2: any;
     
     constructor(
                 public layoutService: LayoutService,
@@ -41,6 +43,62 @@ export class DashboardComponent implements OnInit {
             { name: 'Loja Defeitos', code: 'PRS' }
         ];
 
+        this.data2 = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+                {
+                    label: '',
+                    backgroundColor: function(context: any) {
+                        var chart = context.chart;
+                        var ctx = chart.ctx;
+                        var gradient = ctx.createLinearGradient(0, 0, 0, chart.height);
+                        gradient.addColorStop(0, 'rgba(96, 198, 255, 0.5)');
+                        gradient.addColorStop(1, 'rgba(96, 198, 255, 0)');
+                        return gradient;
+                    },
+                    borderColor: ['rgba(96, 198, 255)'],
+                    fill: true, 
+                    data: [60, 60, 55, 55, 50, 60, 60]
+                }
+            ]
+        };
+
+
+        this.options2 = {
+            legend: {
+                display: false
+            },        
+            animations: {
+                tension: {
+                  duration: 1000,
+                  easing: 'linear',
+                  from: 1,
+                  to: 0,
+                  loop: true
+                }
+            },
+            maintainAspectRatio: false,
+            aspectRatio: 2,
+            scales: {
+                x: {
+                    ticks: {
+                        display: false,
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    ticks: {
+                        display: false
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            barPercentage: 0.1
+        };
         
 
         this.data = {
@@ -50,7 +108,6 @@ export class DashboardComponent implements OnInit {
                     label: 'Meta',
                     backgroundColor: ['rgba(133, 169, 255)'],
                     borderColor: ['rgba(133, 169, 255)'],
-                    fill: true, 
                     data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40]
                 },
                 {
@@ -64,6 +121,15 @@ export class DashboardComponent implements OnInit {
 
 
         this.options = {
+            animations: {
+                tension: {
+                  duration: 1000,
+                  easing: 'linear',
+                  from: 1,
+                  to: 0,
+                  loop: true
+                }
+            },
             maintainAspectRatio: false,
             aspectRatio: 0.8,
             plugins: {

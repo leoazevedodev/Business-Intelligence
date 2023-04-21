@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
                 {
-                    label: '',
+                    label: 'Usuários Novos', 
                     backgroundColor: function(context: any) {
                         var chart = context.chart;
                         var ctx = chart.ctx;
@@ -65,9 +65,13 @@ export class DashboardComponent implements OnInit {
 
 
         this.options2 = {
-            legend: {
-                display: false
-            },        
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white'
+                    }
+                }
+            },
             animations: {
                 tension: {
                   duration: 1000,

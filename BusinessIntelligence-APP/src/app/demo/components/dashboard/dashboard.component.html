@@ -341,7 +341,8 @@
             <div class="grid">
                 <div class="col-12 lg-6">
                     <div class="card">
-                        <h1 style="font-size: 2rem;">Kpis</h1>
+                        <h1 style="font-size: 2rem;">KPIS</h1>
+                        <div style="width: 10rem; background-color: white;" class="mb-5 divider"></div>
                         <div class="flex justify-content-end flex-wrap">
                             <div class="flex align-items-center justify-content-center m-2">
                                 <p-dropdown class="mb-3" [options]="cities" placeholder="Canal de Venda"  optionLabel="name"></p-dropdown>
@@ -379,6 +380,32 @@
                                 <div class="card relative">
                                     <span class="text-sm font-medium line-height-1"> CONVERSATION RATE </span>
                                     <div class="flex justify-content-between align-items-center">
+                                        <div class="flex justify-content-center align-items-center h-2rem w-5rem border-round p-2 mr-3" style="background-color: #fc6161; box-shadow: 0px 6px 20px rgba(252, 97, 97, 0.3);">
+                                            <i class="pi pi-arrow-down w-2rem"></i>
+                                            <span class="line-height-2">0.6%</span>
+                                        </div>
+                                        <div class="line-height-4 text-4xl">0.81%</div>
+                                    </div>
+                                    <img src="./../../../../assets/layout/images/rate.svg" class="absolute" style="bottom: 14px; right: 12px;">
+                                </div>
+                            </div>
+                            <div class="col-12 md:col-6 lg:col-3">
+                                <div class="card relative">
+                                    <span class="text-sm font-medium line-height-1"> CONVERSATION RATE </span>
+                                    <div class="flex justify-content-between align-items-center">
+                                        <div class="flex justify-content-center align-items-center h-2rem w-5rem border-round p-2 mr-3" style="margin-right: 12px; background-color: #0bd18a; box-shadow: 0px 6px 20px rgba(11, 209, 138, 0.3);">
+                                            <i class="pi pi-arrow-up w-2rem"></i>
+                                            <span class="line-height-2">4,2%</span>
+                                        </div>
+                                        <div class="line-height-4 text-4xl">$306.2</div>
+                                    </div>
+                                    <img src="./../../../../assets/layout/images/positiverate.svg" class="absolute" style="bottom: 14px; right: 12px;">
+                                </div>
+                            </div>
+                            <!-- <div class="col-12 md:col-6 lg:col-3">
+                                <div class="card relative">
+                                    <span class="text-sm font-medium line-height-1"> CONVERSATION RATE </span>
+                                    <div class="flex justify-content-between align-items-center">
                                         <div class="flex justify-content-center align-items-center h-2rem w-5rem border-round p-2 mr-3" style="background-color: #00d0de; box-shadow: 0px 6px 20px rgba(0, 208, 222, 0.3);">
                                             <i class="pi pi-minus w-2rem"></i>
                                             <span class="line-height-2">2,1%</span>
@@ -400,7 +427,7 @@
                                     </div>
                                     <img src="./../../../../assets/layout/images/rate.svg" class="absolute" style="bottom: 14px; right: 12px;">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <p-chart type="bar" [data]="data" [options]="options"></p-chart>
                     </div>
@@ -457,34 +484,26 @@
                     </div>
                 </div>
 
-                <!-- <div _ngcontent-tou-c26="" class="overview-graph">
-                    <span _ngcontent-tou-c26="5" style="height: 12px;">
-                        <span _ngcontent-tou-c26="5" class="graph-tooltip">12</span>
-                    </span>
-                    <span _ngcontent-tou-c26="5" style="height: 40px;">
-                        <span _ngcontent-tou-c26="" class="graph-tooltip">40</span>
-                    </span><span _ngcontent-tou-c26="" style="height: 26px;">
-                        <span _ngcontent-tou-c26="" class="graph-tooltip">26</span>
-                    </span><span _ngcontent-tou-c26="" style="height: 17px;">
-                        <span _ngcontent-tou-c26="" class="graph-tooltip">17</span>
-                    </span><span _ngcontent-tou-c26="" style="height: 36px;">
-                        <span _ngcontent-tou-c26="" class="graph-tooltip">36</span>
-                    </span><span _ngcontent-tou-c26="" style="height: 51px;">
-                        <span _ngcontent-tou-c26="" class="graph-tooltip">51</span>
-                    </span>
-                </div> -->
-
                 <div class="col-12 md:col-6 lg:col-8">
                     <div class="card">
-                        <h1 style="font-size: 2rem;">E-Commerce</h1>
-
-                        <div class="mt-5 mb-5 divider"></div>
+                        <h1 style="font-size: 2rem;">Novos Clientes</h1>
+                        <div style="width: 10rem; background-color: white;" class="mb-5 divider"></div>
 
                         <div class="grid">
                             <div class="col-12 md:col-6 lg:col-6">
+                                <div class="flex align-items-center">
+                                    
+                                    <h4 class="mb-5">Novos Clientes :<span> 42</span></h4>
+                                    <p-tag class="ml-2 mb-5" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
+                                </div>
                                 <p-chart type="line" [data]="data2" [options]="options2"></p-chart>
                             </div> 
                             <div class="col-12 md:col-6 lg:col-6">
+                                <div class="flex align-items-center">
+                                    
+                                    <h4 class="mb-5">Taxa Retenção :<span> 18% </span></h4>
+                                    <p-tag class="ml-2 mb-5" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
+                                </div>
                                 <p-chart type="line" [data]="data2" [options]="options2"></p-chart>
                             </div> 
                         </div>

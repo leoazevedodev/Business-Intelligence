@@ -24,6 +24,7 @@ import { NgxGaugeModule } from 'ngx-gauge';
 import { TagModule } from 'primeng/tag';
 import { DropdownModule } from 'primeng/dropdown';
 import { AvatarModule } from 'primeng/avatar';
+import {TooltipModule} from 'primeng/tooltip';
 
 
 
@@ -52,7 +53,8 @@ import { AvatarModule } from 'primeng/avatar';
         NgxGaugeModule,
         TagModule,
         DropdownModule,
-        AvatarModule
+        AvatarModule,
+        TooltipModule
         
     ]
 })

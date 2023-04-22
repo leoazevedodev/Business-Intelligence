@@ -25,6 +25,7 @@ import { TagModule } from 'primeng/tag';
 import { DropdownModule } from 'primeng/dropdown';
 import { AvatarModule } from 'primeng/avatar';
 import {TooltipModule} from 'primeng/tooltip';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 
 
@@ -54,7 +55,8 @@ import {TooltipModule} from 'primeng/tooltip';
         TagModule,
         DropdownModule,
         AvatarModule,
-        TooltipModule
+        TooltipModule,
+        ProgressBarModule
         
     ]
 })

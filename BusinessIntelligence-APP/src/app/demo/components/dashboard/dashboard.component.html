@@ -18,8 +18,13 @@
                 <span>25/05/2023 à 25/05/2023</span>
             </div>
         </div>
-        
     </div>
+
+    <div class="card">
+        <div echarts [options]="chartOptionBar" class="demo-chart"></div>
+    </div>
+
+
     
     <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-5">
         <li>
@@ -56,8 +61,16 @@
                         </div>
                     </div>
                 </div>
-                <span class="text-500 mt-4">Total Ano Passado: <span style="color: 'rgba(133, 169, 255)'">2555</span></span>
-                <span class="text-500 mt-2">Total Ano Passado: <span style="color: 'rgba(133, 169, 255)'">2555</span></span>    
+                <div class="flex align-items-center mt-3 mb-2">
+                    <div style="background: rgb(255, 204, 133);" class="bullet-item mr-2"></div>
+                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
+                    <span style="color: 'rgb(255, 204, 133)'">2555</span>
+                </div>
+                <div class="flex align-items-center mb-2">
+                    <div style="background: rgba(133, 169, 255);" class="bullet-item mr-2"></div>
+                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
+                    <span style="color: 'rgba(133, 169, 255)'">2555</span>
+                </div>
             </div>
 
             <div class="cardGauge">
@@ -67,7 +80,7 @@
                         <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
                     </div>
                     <div class="-mt-4 -mr-4 flex align-items-center justify-content-center border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-question text-blue-500 text-xl"></i>
+                        <i pTooltip="Comparação de vendas do ano passado com ano atual" class="pi pi-question text-blue-500 text-xl"></i>
                     </div>
                 </div>
                 <div class="flex justify-content-center">
@@ -81,33 +94,16 @@
                         </div>
                     </div>
                 </div>
-                <span class="text-500 mt-4">Total Ano Passado: <span style="color: 'rgba(133, 169, 255)'">2555</span></span>
-                <span class="text-500 mt-2">Total Ano Passado: <span style="color: 'rgba(133, 169, 255)'">2555</span></span>
-            </div>
-            
-            <div class="cardGauge">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="text-1xl">Novo Card</span>
-                        <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
-                    </div>
-                    <div class="-mt-4 -mr-4 flex align-items-center justify-content-center border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-question text-blue-500 text-xl"></i>
-                    </div>
+                <div class="flex align-items-center mt-3 mb-2">
+                    <div style="background: rgb(255, 204, 133);" class="bullet-item mr-2"></div>
+                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
+                    <span style="color: 'rgb(255, 204, 133)'">2555</span>
                 </div>
-                <div class="flex justify-content-center">
-                    <ngx-gauge class="mt-2" [thick]="2" [foregroundColor]="'rgba(133, 169, 255)'" [size]="100" [type]="'full'" [value]="gaugeValue" [append]="gaugeAppendText"> </ngx-gauge>
-                    <div class="ml-7 mt-2 bar-chart">
-                        <div class="bar-1" style="height: 100%;">
-                          <span class="bar-label">80%</span>
-                        </div>
-                        <div class="bar-2" style="height: 50%;">
-                          <span class="bar-label">50%</span>
-                        </div>
-                    </div>
+                <div class="flex align-items-center mb-2">
+                    <div style="background: rgba(133, 169, 255);" class="bullet-item mr-2"></div>
+                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
+                    <span style="color: 'rgba(133, 169, 255)'">2555</span>
                 </div>
-                <span class="text-500 mt-4">Total Ano Passado: <span style="color: 'rgba(133, 169, 255)'">2555</span></span>
-                <span class="text-500 mt-2">Total Ano Passado: <span style="color: 'rgba(133, 169, 255)'">2555</span></span>
             </div>
 
             <div class="cardGauge">
@@ -117,7 +113,7 @@
                         <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
                     </div>
                     <div class="-mt-4 -mr-4 flex align-items-center justify-content-center border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-question text-blue-500 text-xl"></i>
+                        <i pTooltip="Comparação de vendas do ano passado com ano atual" class="pi pi-question text-blue-500 text-xl"></i>
                     </div>
                 </div>
                 <div class="flex justify-content-center">
@@ -131,8 +127,49 @@
                         </div>
                     </div>
                 </div>
-                <span class="text-500 mt-4">Total Ano Passado: <span style="color: 'rgba(133, 169, 255)'">2555</span></span>
-                <span class="text-500 mt-2">Total Ano Passado: <span style="color: 'rgba(133, 169, 255)'">2555</span></span>
+                <div class="flex align-items-center mt-3 mb-2">
+                    <div style="background: rgb(255, 204, 133);" class="bullet-item mr-2"></div>
+                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
+                    <span style="color: 'rgb(255, 204, 133)'">2555</span>
+                </div>
+                <div class="flex align-items-center mb-2">
+                    <div style="background: rgba(133, 169, 255);" class="bullet-item mr-2"></div>
+                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
+                    <span style="color: 'rgba(133, 169, 255)'">2555</span>
+                </div>
+            </div>
+
+            <div class="cardGauge">
+                <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="text-1xl">Novo Card</span>
+                        <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
+                    </div>
+                    <div class="-mt-4 -mr-4 flex align-items-center justify-content-center border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                        <i pTooltip="Comparação de vendas do ano passado com ano atual" class="pi pi-question text-blue-500 text-xl"></i>
+                    </div>
+                </div>
+                <div class="flex justify-content-center">
+                    <ngx-gauge class="mt-2" [thick]="2" [foregroundColor]="'rgba(133, 169, 255)'" [size]="100" [type]="'full'" [value]="gaugeValue" [append]="gaugeAppendText"> </ngx-gauge>
+                    <div class="ml-7 mt-2 bar-chart">
+                        <div class="bar-1" style="height: 100%;">
+                          <span class="bar-label">80%</span>
+                        </div>
+                        <div class="bar-2" style="height: 50%;">
+                          <span class="bar-label">50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex align-items-center mt-3 mb-2">
+                    <div style="background: rgb(255, 204, 133);" class="bullet-item mr-2"></div>
+                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
+                    <span style="color: 'rgb(255, 204, 133)'">2555</span>
+                </div>
+                <div class="flex align-items-center mb-2">
+                    <div style="background: rgba(133, 169, 255);" class="bullet-item mr-2"></div>
+                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
+                    <span style="color: 'rgba(133, 169, 255)'">2555</span>
+                </div>
             </div>
 
             <div class="card">
@@ -388,9 +425,8 @@
                                     <img src="./../../../../assets/layout/images/positiverate.svg" class="absolute" style="bottom: 14px; right: 12px;">
                                 </div>
                             </div>
-
                         </div>
-                        <p-chart type="bar" [data]="data" [options]="options"></p-chart>
+                        <div class="mt-2" echarts [options]="chartOptionBar"></div>
                     </div>
                 </div>
 

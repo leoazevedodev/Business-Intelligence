@@ -26,7 +26,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { AvatarModule } from 'primeng/avatar';
 import {TooltipModule} from 'primeng/tooltip';
 import { ProgressBarModule } from 'primeng/progressbar';
-
+import { NgxEchartsModule } from 'ngx-echarts';
 
 
 @NgModule({
@@ -56,8 +56,15 @@ import { ProgressBarModule } from 'primeng/progressbar';
         DropdownModule,
         AvatarModule,
         TooltipModule,
-        ProgressBarModule
-        
+        ProgressBarModule,
+        NgxEchartsModule.forRoot({
+            /**
+             * This will import all modules from echarts.
+             * If you only need custom modules,
+             * please refer to [Custom Build] section.
+             */
+            echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
+          }),
     ]
 })
 export class DashboardModule { }

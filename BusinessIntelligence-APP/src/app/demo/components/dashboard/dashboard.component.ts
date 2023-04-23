@@ -5,6 +5,8 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MenuItem, MessageService } from 'primeng/api';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { EChartsOption } from 'echarts';
+
 
 @Component({
     templateUrl: './dashboard.component.html',
@@ -13,6 +15,82 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 })
 
 export class DashboardComponent implements OnInit {
+    
+    chartOptionBar: EChartsOption ={
+        legend: {
+            data: ['Vendas', 'Meta'], // define as legendas para as séries de dados
+            itemStyle: {
+
+            },
+            textStyle: {
+                color: 'white' // define a cor do texto da legenda
+                
+            },
+            orient: 'vertical',
+            left: 'left',
+            top: 'top',
+            align: 'left'
+        },
+        dataZoom: [
+            {
+                type: 'inside', // tipo de dataZoom para zoom interno
+                xAxisIndex: 0, // índice do eixo x para aplicar o zoom
+                start: 0, // posição inicial do zoom
+                end: 100 // posição final do zoom
+            },
+            // {
+            //     type: 'slider', // tipo de dataZoom para barra de zoom
+            //     xAxisIndex: 0, // índice do eixo x para aplicar o zoom
+            //     start: 0, // posição inicial do zoom
+            //     end: 100 // posição final do zoom
+            // }
+        ],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            },
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: 'Vendas',
+            data: [120, 200, 150, 80, 70, 110, 130],
+            type: 'bar',
+            barWidth: '15%', // define a largura da barra como 50% da largura padrão
+            emphasis: {
+                focus: 'series' // define o foco da série de dados
+
+            },
+            itemStyle: {
+                color: 'rgb(255, 204, 133)'
+            },
+          },
+          {
+            name: 'Meta',
+            data: [300, 200, 150, 80, 70, 110, 130],
+            type: 'bar',
+            barWidth: '15%', // define a largura da barra como 50% da largura padrão
+            emphasis: {
+                focus: 'series' // define o foco da série de dados
+                
+            },
+            itemStyle: {
+                
+            },
+          }
+        ]
+      };
 
     gaugeValue = 60.5;
     gaugeAppendText = "%";
@@ -34,7 +112,9 @@ export class DashboardComponent implements OnInit {
                  {
     }
 
+    
     ngOnInit() {
+
         this.cities = [
             { name: 'Varejo', code: 'NY' },
             { name: 'Franquias', code: 'RM' },

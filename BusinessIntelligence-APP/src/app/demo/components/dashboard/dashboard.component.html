@@ -19,12 +19,6 @@
             </div>
         </div>
     </div>
-
-    <div class="card">
-        <div echarts [options]="chartOptionBar" class="demo-chart"></div>
-    </div>
-
-
     
     <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-5">
         <li>
@@ -430,7 +424,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 md:col-6 lg:col-12">
+                <!-- <div class="col-12 md:col-6 lg:col-12">
                     <div class="card">
                         <div class="flex justify-content-between mb-3">
                             <div>
@@ -486,9 +480,9 @@
                             </div> 
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-12 md:col-6 lg:col-8">
+                <!-- <div class="col-12 md:col-6 lg:col-8">
                     <div class="card">
                         <div class="flex justify-content-between mb-3">
                             <div>
@@ -499,23 +493,17 @@
                             </div>
                         </div>
                         <div class="grid">
-                            <div class="col-12 md:col-6 lg:col-6">
+                            <div class="col-12 md:col-6 lg:col-8">
                                 <div class="flex align-items-center justify-content-center">
                                     <h4 class="mb-5">Novos Clientes :<span> 42</span></h4>
                                     <p-tag class="ml-2 mb-5" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
                                 </div>
-                                <p-chart type="line" [data]="data2" [options]="options2"></p-chart>
-                            </div> 
-                            <div class="col-12 md:col-6 lg:col-6">
-                                <div class="flex align-items-center justify-content-center">
-                                    <h4 class="mb-5">Taxa Retenção :<span> 18% </span></h4>
-                                    <p-tag class="ml-2 mb-5" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
-                                </div>
-                                <p-chart type="line" [data]="data2" [options]="options2"></p-chart>
-                            </div> 
+                                <div style="height: 15rem;" class="-mt-5" echarts [options]="chartOptionLine"></div>
+                            </div>  
                         </div>   
                     </div>
-                </div>
+                </div> -->
+
             </div>
         </div>
     </div>

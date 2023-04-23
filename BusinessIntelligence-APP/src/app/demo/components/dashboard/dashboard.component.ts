@@ -15,6 +15,54 @@ import { EChartsOption } from 'echarts';
 })
 
 export class DashboardComponent implements OnInit {
+
+    chartOptionLine: EChartsOption ={
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        xAxis: {
+            show: false,
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+            show: false,
+            type: 'value'
+        },
+        series: [
+          {
+            data: [120, 200, 150, 80, 70, 110, 130],
+            areaStyle: {
+                color: { // criar um degradê
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0,
+                        color: 'rgba(96, 198, 255, 0)'
+                    }, {
+                        offset: 1,
+                        color: '#ffe'
+                    }]
+                }
+            },
+            type: 'line',
+            emphasis: {
+                focus: 'series' // define o foco da série de dados
+
+            },
+            itemStyle: {
+                color: 'rgb(255, 204, 133)'
+            },
+          }
+        ]
+      };
     
     chartOptionBar: EChartsOption ={
         legend: {

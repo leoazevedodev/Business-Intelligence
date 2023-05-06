@@ -11,10 +11,19 @@ namespace BusinessIntelligence_API.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<VendasModel> Vendas { get; set; }
+        public DbSet<LojasModel> Lojas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             VendasBuilder(builder);
+
+            LojasBuilder(builder);
+        }
+
+        private static void LojasBuilder(ModelBuilder builder)
+        {
+            builder.Entity<VendasModel>()
+                .HasIndex(x => x.Lojaid);
         }
 
         private static void VendasBuilder(ModelBuilder builder)

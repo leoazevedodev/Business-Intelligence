@@ -6,9 +6,9 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
     imports: [
         RouterModule.forRoot([
             {
-                path: 'alphabeto', component: AppLayoutComponent,
+                path: 'business', component: AppLayoutComponent,
                 children: [
-                    { path: 'business', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) }
+                    { path: 'home', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) }
                     
 
                 ]   

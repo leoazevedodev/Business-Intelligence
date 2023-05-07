@@ -1,56 +1,8 @@
-.tam {
-    height: 85px;
-}
-
-
-.container {
-    width: 20rem;
-    height: 2.5rem;
-    padding-bottom: 3rem;
-}
-
-.texto {
-    padding-left: 1.5rem;
-    padding-bottom: 0.5rem;
-    font-size: 0.8rem;
-}
-
-.pickdate {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20rem;
-    height: 2.5rem;
-    border-radius: 3rem;
-    border: 2px solid #31374a;
-    background: transparent;
-    text-align: center;
-
-}
-
-
-@media screen and (max-width: 991px) {
-    .tam {
-        height: auto;
-    }
-    .container {
-        width: 100%;
-        padding-bottom: 4rem;
-    }
-    .pickdate {
-        width: 100%;
-    }
-    .button-search {
-        width: 100%;
-    }
-}
-
 .bullet-item {
   height: 0.5rem;
   width: 1.25rem;
   border-radius: 2px;
 }
-
 
 .bar-chart {
     display: flex;

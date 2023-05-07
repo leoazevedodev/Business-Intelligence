@@ -150,6 +150,12 @@ export class DashboardComponent implements OnInit {
 
     data2: any;
     options2: any;
+
+    displayPosition!: boolean;
+
+    position!: string;
+
+    dateinicio!: number;
     
     constructor(
                 public layoutService: LayoutService,
@@ -160,6 +166,22 @@ export class DashboardComponent implements OnInit {
                  {
     }
 
+    show()
+    {
+        
+        const data = new Date(this.dateinicio);
+
+        const dia = data.getDate();
+        const mes = data.getMonth(); 
+        const ano = data.getFullYear();
+
+        if(dia < 10)
+        {
+            // const dia = '0' + dia;
+        }
+
+        console.log(dia, mes, ano);
+    }
     
     ngOnInit() {
 

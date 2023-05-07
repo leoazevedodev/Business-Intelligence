@@ -17,7 +17,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import { AppConfigModule } from "../../../layout/config/config.module";
 import {DividerModule} from 'primeng/divider';
-import { DatapickerComponent } from "../datapicker/datapicker.component";
+import { PickerComponent } from "../picker/picker.component";
 import {TabViewModule} from 'primeng/tabview';
 import { SplitterModule } from 'primeng/splitter';
 import { NgxGaugeModule } from 'ngx-gauge';
@@ -30,7 +30,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 
 
 @NgModule({
-    declarations: [DashboardComponent],
+    declarations: [DashboardComponent, PickerComponent],
     imports: [
         CommonModule,
         FormsModule,

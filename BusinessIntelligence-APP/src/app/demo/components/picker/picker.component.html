@@ -1,0 +1,113 @@
+<p-dialog 
+    [transitionOptions]="'1.2s cubic-bezier(0, 0, 0.2, 1)'" 
+    [(visible)]="displayDatePicker" 
+    [position]="positionDate" 
+    [modal]="true" 
+    [breakpoints]="{'960px': '100vw'}" 
+    [style]="{width: '80rem'}"
+    [draggable]="false" 
+    [closable]="false"
+    [resizable]="false">
+     
+    <ng-template pTemplate="content">
+        <div class="flex align-items-center justify-content-center flex-column md:flex-row">
+            <h2 class="mb-2">Selecione Um Período</h2>
+        </div>
+
+        <div class="flex align-items-center justify-content-center flex-column md:flex-row">
+            <p-calendar class="m-2" [(ngModel)]="dateinicio" [inline]="true" [showWeek]="true"></p-calendar>
+            <p-calendar class="m-2" [(ngModel)]="datefim" [inline]="true" [showWeek]="true"></p-calendar>
+        </div>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div class="flex align-items-center justify-content-center">
+            <p-button icon="pi pi-times" (click)="closeDialogDate()" label="Cancelar" ></p-button>
+            <p-button icon="pi pi-check" (click)="pickDate()" label="Confirmar" ></p-button>
+        </div>
+
+    </ng-template>
+
+</p-dialog>
+
+<p-dialog 
+    [transitionOptions]="'1.2s cubic-bezier(0, 0, 0.2, 1)'" 
+    [(visible)]="displayLojaPicker" 
+    [position]="positionLoja" 
+    [modal]="true" 
+    [breakpoints]="{'960px': '100vw'}" 
+    [style]="{width: '60rem'}"
+    [draggable]="false" 
+    [closable]="false"
+    [resizable]="false">
+     
+    <ng-template pTemplate="content">
+        <div class="flex align-items-center justify-content-center flex-column md:flex-row">
+            <h2 class="mb-2">Selecione Uma Loja</h2>
+        </div>
+
+        <div class="flex align-items-center justify-content-center flex-column md:flex-row">
+            <p-table #dt 
+            [value]="lojas"  
+            [globalFilterFields]="['name','country.name','representative.name','status']" 
+            [tableStyle]="{'min-width': '55rem'}"
+            [(selection)]="selectedLojas" 
+            [rowHover]="true" dataKey="lojaid"
+            [showCurrentPageReport]="true">
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 4rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th pSortableColumn="loja" style="min-width:15rem">Loja <p-sortIcon field="loja"></p-sortIcon></th>
+                        <th pSortableColumn="uf" style="min-width:15rem">UF <p-sortIcon field="uf"></p-sortIcon></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-result>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="result"></p-tableCheckbox>
+                        </td>
+                        <td>{{result.loja}}</td>
+                        <td>{{result.uf}}</td>
+
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div class="flex align-items-center justify-content-center">
+            <p-button icon="pi pi-times" (click)="closeDialogLoja()" label="Cancelar" ></p-button>
+            <p-button icon="pi pi-check" label="Confirmar" ></p-button>
+        </div>
+    </ng-template>
+
+</p-dialog>
+
+
+
+<div class="tam flex flex-wrap flex-row-reverse">
+    <p-button class="button-search flex align-items-center justify-content-center" icon="pi pi-search" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
+
+    <div (click)="showDialogLoja('bottom')" class="container m-2">
+        <div class="texto">
+            <span class="">Selecione uma Loja</span>
+        </div>
+        <div class="pickdate">
+            <span>95 Lojas Selecionadas</span>
+        </div>
+    </div>
+
+    <div (click)="showDialogDate('top')" class="container m-2">
+        <div class="texto">
+            <span class="">Selecione um Período</span>
+        </div>
+        <div class="pickdate">
+            <span> {{dateInicioLabel}} à  {{dateFimLabel}}</span>
+        </div>
+    </div>
+</div>

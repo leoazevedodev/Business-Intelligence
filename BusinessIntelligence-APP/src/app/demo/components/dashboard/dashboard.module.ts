@@ -27,6 +27,7 @@ import { AvatarModule } from 'primeng/avatar';
 import {TooltipModule} from 'primeng/tooltip';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { CheckboxModule } from 'primeng/checkbox';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
         AvatarModule,
         TooltipModule,
         ProgressBarModule,
+        CheckboxModule,
         NgxEchartsModule.forRoot({
             /**
              * This will import all modules from echarts.

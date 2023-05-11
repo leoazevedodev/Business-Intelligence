@@ -10,5 +10,6 @@ namespace BusinessIntelligence_API.Data.Models
         public string UF { get; set; }
         public string Canal { get; set; }
         public string Cnpj { get; set; }
+        public string Base { get; set; }
     }
 }

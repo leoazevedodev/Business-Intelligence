@@ -1,30 +1,21 @@
 <p-dialog 
     [transitionOptions]="'1.2s cubic-bezier(0, 0, 0.2, 1)'" 
-    [(visible)]="displayDatePicker" 
+    [visible]="displayDatePicker" 
     [position]="positionDate" 
     [modal]="true" 
     [breakpoints]="{'960px': '100vw'}" 
     [style]="{width: '80rem'}"
-    [draggable]="false" 
-    [closable]="false"
-    [resizable]="false">
+    [draggable]="true">
      
     <ng-template pTemplate="content">
-        <div class="flex align-items-center justify-content-center flex-column md:flex-row">
-            <h2 class="mb-2">Selecione Um Período</h2>
-        </div>
-
-        <div class="flex align-items-center justify-content-center flex-column md:flex-row">
+        <div class="mt-5 flex align-items-center justify-content-center flex-column md:flex-row">
             <p-calendar class="m-2" [(ngModel)]="dateinicio" [inline]="true" [showWeek]="true"></p-calendar>
             <p-calendar class="m-2" [(ngModel)]="datefim" [inline]="true" [showWeek]="true"></p-calendar>
         </div>
 
-    </ng-template>
-
-    <ng-template pTemplate="footer">
-        <div class="flex align-items-center justify-content-center">
-            <p-button icon="pi pi-times" (click)="closeDialogDate()" label="Cancelar" ></p-button>
-            <p-button icon="pi pi-check" (click)="pickDate()" label="Confirmar" ></p-button>
+        <div class="mt-2 flex align-items-center justify-content-end">
+            <p-button (click)="closeDialogDate()" class="button-search flex align-items-center justify-content-center" icon="pi pi-times" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
+            <p-button (click)="pickDate()" class="button-search flex align-items-center justify-content-center" icon="pi pi-search" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
         </div>
 
     </ng-template>
@@ -43,11 +34,31 @@
     [resizable]="false">
      
     <ng-template pTemplate="content">
-        <div class="flex align-items-center justify-content-center flex-column md:flex-row">
-            <h2 class="mb-2">Selecione Uma Loja</h2>
+        <div class="mt-5 flex justify-content-start align-items-center">
+            <div class="item flex align-items-center justify-content-center font-bold text-white border-round m-2">
+              <div class="field-checkbox">
+                <p-checkbox name="group1" value="New York"  inputId="ny"></p-checkbox>
+                <label for="ny">Loja Própria</label>
+              </div>
+            </div>
+            <div class="item flex align-items-center justify-content-center font-bold text-white border-round m-2">
+              <div class="field-checkbox">
+                <p-checkbox name="group1" value="New York"  inputId="ny"></p-checkbox>
+                <label for="ny">Franquias</label>
+              </div>
+            </div>
+            <div class="-mt-1 item flex align-items-center justify-content-center font-bold text-white border-round m-2">
+              <p-dropdown [placeholder]="'Base'"></p-dropdown>
+            </div>
         </div>
-
-        <div class="flex align-items-center justify-content-center flex-column md:flex-row">
+    
+        <div class="mt-2">
+            <div class="mb-2 flex align-items-center justify-content-end">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text"  placeholder="Search..." />
+                </span>
+            </div>
             <p-table #dt 
             [value]="lojas" 
             breakpoint="100px"
@@ -55,15 +66,18 @@
             [(selection)]="selectedLojas" 
             [rowHover]="true" 
             dataKey="lojaid"
+            [style]="{'width': '100%'}"
+            scrollHeight="40rem"
             [showCurrentPageReport]="true">
-
+    
                 <ng-template pTemplate="header">
                     <tr>
-                        <th style="width: 4rem">
+                        <th style="width: 2rem;">
                             <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                         </th>
-                        <th pSortableColumn="loja" style="min-width:15rem">Loja <p-sortIcon field="loja"></p-sortIcon></th>
-                        <th pSortableColumn="uf" style="min-width:15rem">UF <p-sortIcon field="uf"></p-sortIcon></th>
+                        <th pSortableColumn="loja">Loja <p-sortIcon field="loja"></p-sortIcon></th>
+                        <th pSortableColumn="uf">UF <p-sortIcon field="uf"></p-sortIcon></th>
+                        <th pSortableColumn="canal">Canal <p-sortIcon field="canal"></p-sortIcon></th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-result>
@@ -73,17 +87,17 @@
                         </td>
                         <td>{{result.loja}}</td>
                         <td>{{result.uf}}</td>
-
+                        <td>{{result.canal}}</td>
+    
                     </tr>
                 </ng-template>
             </p-table>
         </div>
-    </ng-template>
 
-    <ng-template pTemplate="footer">
-        <div class="flex align-items-center justify-content-center">
-            <p-button icon="pi pi-times" (click)="closeDialogLoja()" label="Cancelar" ></p-button>
-            <p-button icon="pi pi-check" label="Confirmar" ></p-button>
+
+        <div class="mt-2 flex align-items-center justify-content-end">
+            <p-button (click)="closeDialogLoja()" class="button-search flex align-items-center justify-content-center" icon="pi pi-times" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
+            <p-button class="button-search flex align-items-center justify-content-center" icon="pi pi-search" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
         </div>
     </ng-template>
 

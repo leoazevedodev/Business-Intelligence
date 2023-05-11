@@ -46,6 +46,12 @@ export class PickerComponent implements OnInit {
             {lojaid: '54654', loja: 'Olympikus', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
             {lojaid: '54654', loja: 'Fila', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
             {lojaid: '54654', loja: 'Umbro', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
+            {lojaid: '54654', loja: 'Topper', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
+            {lojaid: '54654', loja: 'Fila', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
+            {lojaid: '54654', loja: 'Umbro', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
+            {lojaid: '54654', loja: 'Topper', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
+            {lojaid: '54654', loja: 'Fila', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
+            {lojaid: '54654', loja: 'Umbro', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
             {lojaid: '54654', loja: 'Topper', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'}
         ];
     }

@@ -14,7 +14,11 @@ body {
     color: white;
     // background: #202020;
     // background: #1A1C20; // GRAFITE
-    background: #0b0c13; 
+    // background: #0b0c13;  // AZUL ESCURO OFICIAL
+    background: radial-gradient(farthest-side ellipse at 10% 0, #333867 20%, #17193B);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
     // background: #0f111a; // ORIGINAL
     // background: #141619;
     font-family: 'Quicksand';

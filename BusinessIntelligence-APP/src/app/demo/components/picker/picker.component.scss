@@ -21,14 +21,15 @@
     width: 20rem;
     height: 2.5rem;
     border-radius: 3rem;
-    border: 2px solid #31374a;
-    background: transparent;
+    background: rgba(0,0,0,.40);
+    box-shadow: 0 25px 20px -20px rgba(0,0,0,.1), 0 0 15px rgba(0,0,0,.06);
+    opacity: 0.7;
     text-align: center;
 }
 
 .pickdate:hover {
     background: #141824;
-    // background: linear-gradient(74deg, rgba(20,24,36,1) 24%, rgba(11,12,19,1) 82%, rgba(0,0,0,1) 100%); 
+    opacity: 1;
     cursor: pointer;
 }
 

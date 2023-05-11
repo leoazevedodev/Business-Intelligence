@@ -2,7 +2,6 @@
 {
     public class BaseList
     {
-        public string Lojaid { get; set; }
         public string Base { get; set; }
     }
 }

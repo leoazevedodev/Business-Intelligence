@@ -12,12 +12,29 @@ namespace BusinessIntelligence_API.Api.Lojas.Controllers
         }
 
         [HttpGet]
-        [Route("api/v1/produtos")]
-        public async Task<IActionResult> ObterProduto()
+        [Route("api/v1/lojas/bases")]
+        public async Task<IActionResult> GetBases()
         {
             try
             {
                 var response = await _lojas.GetBases();
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+        }
+
+        [HttpGet]
+        [Route("api/v1/lojas")]
+        public async Task<IActionResult> GetLojas()
+        {
+            try
+            {
+                var response = await _lojas.GetLojas();
+
                 return Ok(response);
             }
             catch (Exception ex)

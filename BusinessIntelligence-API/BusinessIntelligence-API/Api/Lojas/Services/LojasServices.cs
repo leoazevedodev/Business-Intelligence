@@ -6,7 +6,7 @@ namespace BusinessIntelligence_API.Api.Lojas.Services
 {
     public class LojasServices : ILojasServices
     {
-        private readonly DataContext _context;
+        DataContext _context;
         public LojasServices(DataContext context)
         {
             _context = context;
@@ -17,5 +17,12 @@ namespace BusinessIntelligence_API.Api.Lojas.Services
 
             return response;
         }   
+
+        public async Task<List<LojasView>> GetLojas()
+        {
+            var response = await new LojasBuilder(_context).GetLojas();
+
+            return response;
+        }
     }
 }

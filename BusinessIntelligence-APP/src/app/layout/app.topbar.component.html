@@ -36,6 +36,19 @@
 
 </p-overlayPanel>
 
+<div style="height: 3rem; background: #141619" class="notificacao text-gray-100 p-0 flex justify-content-between lg:justify-content-center align-items-center flex-wrap">
+    <div class="font-bold mr-8">🔥🔥🔥🔥</div>
+    <div class="align-items-center hidden lg:flex">
+        <span class="line-height-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero a sapiente quo tempora neque repudiandae fugiat molestias qui corporis aspernatur sunt consectetur explicabo totam, et porro modi fugit obcaecati doloremque.</span>
+    </div>
+    <a class="flex align-items-center ml-2 mr-8">
+        <!-- <a class="text-white" href="#"><span class="underline font-bold">Ranking </span></a> -->
+    </a>
+    <a pRipple class="flex align-items-center no-underline justify-content-center border-circle text-gray-50 hover:bg-bluegray-700 cursor-pointer transition-colors transition-duration-150" style="width:2rem; height: 2rem">
+        <i class="pi pi-times"></i>
+    </a>
+</div> 
+
 <div class="layout-topbar">
 
     <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
@@ -52,6 +65,8 @@
         <img pBadge value="2" (click)="op.toggle($event)" class="layout-topbar-button" src="./../../assets/layout/images/persona.jpg">
     </div>
 </div>
+
+
 
         <!-- <button class="p-link layout-topbar-button">
             <i class="pi pi-bell"></i>

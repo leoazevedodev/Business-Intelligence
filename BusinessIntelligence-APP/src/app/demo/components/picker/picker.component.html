@@ -49,11 +49,12 @@
 
         <div class="flex align-items-center justify-content-center flex-column md:flex-row">
             <p-table #dt 
-            [value]="lojas"  
+            [value]="lojas" 
+            breakpoint="100px"
             [globalFilterFields]="['name','country.name','representative.name','status']" 
-            [tableStyle]="{'min-width': '55rem'}"
             [(selection)]="selectedLojas" 
-            [rowHover]="true" dataKey="lojaid"
+            [rowHover]="true" 
+            dataKey="lojaid"
             [showCurrentPageReport]="true">
 
                 <ng-template pTemplate="header">

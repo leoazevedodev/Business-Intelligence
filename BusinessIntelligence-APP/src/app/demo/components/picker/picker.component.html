@@ -1,3 +1,18 @@
+<p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'800ms'" [hideTransitionOptions]="'800ms'" [showTransformOptions]="'translateX(100%)'">
+    <ng-template let-message pTemplate="message">
+
+        <div class="flex flex-column card-container green-container">
+            <div class="flex align-items-center justify-content-center font-bold text-white border-round m-2">
+                {{message.summary}}
+            </div>
+            <div class="flex align-items-center justify-content-center font-bold text-white border-round m-2">
+                {{message.detail}}
+            </div>
+        </div>
+        <span class="p-toast-progress"></span>
+    </ng-template>
+</p-toast>
+
 <p-dialog 
     [transitionOptions]="'1.2s cubic-bezier(0, 0, 0.2, 1)'" 
     [visible]="displayDatePicker" 
@@ -78,6 +93,7 @@
                         <th pSortableColumn="loja">Loja <p-sortIcon field="loja"></p-sortIcon></th>
                         <th pSortableColumn="uf">UF <p-sortIcon field="uf"></p-sortIcon></th>
                         <th pSortableColumn="canal">Canal <p-sortIcon field="canal"></p-sortIcon></th>
+                        <th pSortableColumn="base">Base <p-sortIcon field="base"></p-sortIcon></th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-result>
@@ -88,6 +104,7 @@
                         <td>{{result.loja}}</td>
                         <td>{{result.uf}}</td>
                         <td>{{result.canal}}</td>
+                        <td>{{result.base}}</td>
     
                     </tr>
                 </ng-template>

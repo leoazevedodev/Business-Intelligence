@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Lojas } from './lojas';
+import { PickerService } from './picker.service';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-picker',
   templateUrl: './picker.component.html',
-  styleUrls: ['./picker.component.scss']
+  styleUrls: ['./picker.component.scss'],
+  providers: [MessageService]
 })
 export class PickerComponent implements OnInit {
 
@@ -24,9 +28,11 @@ export class PickerComponent implements OnInit {
     lojas!: Lojas[];
     selectedLojas: Lojas[] = [];
     
-    constructor() { }
+    constructor(private PickerService: PickerService,
+                private messageService: MessageService,) { }
 
     ngOnInit() {
+        this.getLojas();
         if(localStorage.getItem('dataInicio') === null || localStorage.getItem('dataFim') === null)
         {
             this.showDialogDate('top');
@@ -36,24 +42,15 @@ export class PickerComponent implements OnInit {
             this.dateFimLabel = localStorage.getItem('dataFimLabel') ? localStorage.getItem('dataFimLabel')! : '';
             this.dateInicioLabel = localStorage.getItem('dataInicioLabel') ? localStorage.getItem('dataInicioLabel')! : '';
         }
+    }
 
-        this.lojas = [
-            {lojaid: '54654', loja: 'Nike', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54655', loja: 'Adidas', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54656', loja: 'Puma', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Mizuno', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Asics', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Olympikus', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Fila', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Umbro', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Topper', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Fila', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Umbro', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Topper', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Fila', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Umbro', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'},
-            {lojaid: '54654', loja: 'Topper', uf: 'SP', canal: 'Loja', cnpj: '12345678912345'}
-        ];
+    getLojas()
+    {
+        this.PickerService.getLojas().subscribe(
+            (response) => { this.lojas = response; },
+            error =>  { this.messageService.add( { life: 4250, sticky: false, severity:'success', closable: true, summary:'Falha de conexão com servidor', detail: error.error.message } ) ; 
+            }
+          );
     }
 
     pickDate()

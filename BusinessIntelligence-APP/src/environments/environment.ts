@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:54553/'
-  // apiUrl: 'https://alphabiapiv2.azurewebsites.net/'
+  apiUrl: 'https://localhost:7000/'
 };
 
 export const CHECK_IN = 'CHECK_IN';

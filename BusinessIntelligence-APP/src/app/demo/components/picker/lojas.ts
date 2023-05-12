@@ -4,4 +4,5 @@ export interface Lojas  {
     uf: string;
     canal: string;
     cnpj: string;
+    base: string;
 }

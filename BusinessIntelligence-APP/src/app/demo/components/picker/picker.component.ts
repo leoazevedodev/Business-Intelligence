@@ -27,12 +27,16 @@ export class PickerComponent implements OnInit {
 
     lojas!: Lojas[];
     selectedLojas: Lojas[] = [];
+
+    lojaids: { } [] = [];
     
     constructor(private PickerService: PickerService,
                 private messageService: MessageService,) { }
 
     ngOnInit() {
+        this.carregarLojas();
         this.getLojas();
+        console.log(localStorage.getItem('lojaids'));
         if(localStorage.getItem('dataInicio') === null || localStorage.getItem('dataFim') === null)
         {
             this.showDialogDate('top');
@@ -48,9 +52,34 @@ export class PickerComponent implements OnInit {
     {
         this.PickerService.getLojas().subscribe(
             (response) => { this.lojas = response; },
-            error =>  { this.messageService.add( { life: 4250, sticky: false, severity:'success', closable: true, summary:'Falha de conexão com servidor', detail: error.error.message } ) ; 
-            }
-          );
+            (error) =>  { this.messageService.add( { life: 4250, sticky: false, severity:'success', closable: true, summary:'Falha de conexão com servidor', detail: error.error.message } ) ; }
+        );
+    }
+
+    pickLojas()
+    {
+        let LojasJson = JSON.stringify(this.selectedLojas);
+        let lojaids = '';
+        localStorage.setItem('lojas', LojasJson);
+
+        for(let i = 0; i < this.selectedLojas.length; i++)
+        {
+            lojaids += this.selectedLojas[i].lojaid+ ',';
+        }
+
+        localStorage.setItem('lojaids', lojaids);
+        this.displayLojaPicker = false;
+    }
+
+    carregarLojas(){
+        if(localStorage.getItem('lojas') == null )
+        {
+            this.messageService.add( { life: 4250, sticky: false, severity:'success', closable: true, summary:'Selecione uma loja !!' } ) ;
+        } 
+        else 
+        {
+            this.selectedLojas = JSON.parse(localStorage.getItem('lojas')!);
+        }
     }
 
     pickDate()

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Lojas } from './lojas';
 import { Observable } from 'rxjs';
@@ -15,6 +15,16 @@ export class PickerService {
   {
     const url = `${environment.apiUrl}api/v1/lojas`;
     return this.http.get<Lojas[]>(url);
+  }
+
+  getTeste(lojaids: { } [])
+  {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    const url = `${environment.apiUrl}api/v1/lojass`;
+    return this.http.post(url, lojaids , { headers } );
   }
 
 }

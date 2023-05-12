@@ -1,4 +1,4 @@
-<p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'800ms'" [hideTransitionOptions]="'800ms'" [showTransformOptions]="'translateX(100%)'">
+<!-- <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'800ms'" [hideTransitionOptions]="'800ms'" [showTransformOptions]="'translateX(100%)'">
     <ng-template let-message pTemplate="message">
 
         <div class="flex flex-column card-container green-container">
@@ -11,7 +11,11 @@
         </div>
         <span class="p-toast-progress"></span>
     </ng-template>
-</p-toast>
+</p-toast> -->
+
+<p-toast></p-toast>
+
+
 
 <p-dialog 
     [transitionOptions]="'1.2s cubic-bezier(0, 0, 0.2, 1)'" 
@@ -130,7 +134,12 @@
             <span class="">Selecione uma Loja</span>
         </div>
         <div class="pickdate">
-            <span>95 Lojas Selecionadas</span>
+            <ng-container *ngIf="countLojas == 1">
+                <span>{{loja}}</span>
+            </ng-container>
+            <ng-container *ngIf="countLojas > 1">
+                <span>{{countLojas}} Lojas Selecionadas</span>
+            </ng-container>
         </div>
     </div>
 

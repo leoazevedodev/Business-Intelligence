@@ -12,6 +12,8 @@ export class AppTopBarComponent {
 
     items!: MenuItem[];
 
+    message: boolean = true;
+
     @ViewChild('menubutton') menuButton!: ElementRef;
 
     @ViewChild('topbarmenubutton') topbarMenuButton!: ElementRef;
@@ -21,10 +23,13 @@ export class AppTopBarComponent {
     constructor(public layoutService: LayoutService,
         private auth: AuthService) { }
 
-    message: boolean = true;
-
     ngOnInit() {
 
+    }
+
+    closeMessage()
+    {
+        this.message = false;
     }
 
     logout(){

@@ -42,5 +42,20 @@ namespace BusinessIntelligence_API.Api.Lojas.Controllers
                 return BadRequest(new { Message = ex.Message });
             }
         }
+
+        [HttpPost]
+        [Route("api/v1/lojass")]
+        public async Task<IActionResult> teste([FromBody] List<string> lojadis)
+        {
+            try
+            {
+                var lojas = lojadis;
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+        }
     }
 }

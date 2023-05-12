@@ -6,3 +6,7 @@ export interface Lojas  {
     cnpj: string;
     base: string;
 }
+
+export interface Bases {
+    base: string;
+}

@@ -28,6 +28,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { CheckboxModule } from 'primeng/checkbox';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { CheckboxModule } from 'primeng/checkbox';
         TooltipModule,
         ProgressBarModule,
         CheckboxModule,
+        MultiSelectModule,
         NgxEchartsModule.forRoot({
             /**
              * This will import all modules from echarts.

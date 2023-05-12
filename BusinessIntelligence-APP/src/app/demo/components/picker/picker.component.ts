@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Lojas } from './lojas';
+import { Bases, Lojas } from './lojas';
 import { PickerService } from './picker.service';
 import { MessageService } from 'primeng/api';
 
@@ -31,6 +31,15 @@ export class PickerComponent implements OnInit {
     lojaids: { } [] = [];
     countLojas: number = 0;
     loja: string = '';
+
+    dropDownBases: { name: string, code: string } [] = [];
+    selectedBase: { name: string, code: string } [] = [
+        {name: 'Shopping', code: 'Shopping'},
+        {name: 'Atacado', code: 'Atacado'},
+        {name: 'Defeito', code: 'Defeito'},
+        {name: 'Outlet', code: 'Outlet'}
+    ];
+    base: Bases[] = [];
     
     constructor(private PickerService: PickerService,
                 private messageService: MessageService) { }
@@ -39,6 +48,7 @@ export class PickerComponent implements OnInit {
         this.show();
         this.carregarLojas();
         this.getLojas();
+        this.getBases();
         if(localStorage.getItem('dataInicio') === null || localStorage.getItem('dataFim') === null)
         {
             this.showDialogDate('top');
@@ -54,7 +64,20 @@ export class PickerComponent implements OnInit {
     {
         this.PickerService.getLojas().subscribe(
             (response) => { this.lojas = response; },
-            // (error) =>  { this.messageService.add( { life: 4250, sticky: false, severity:'success', closable: true, summary:'Falha de conexão com servidor', detail: error.error.message } ) ; }
+            (error) =>  { this.messageService.add( { life: 4250, sticky: false, severity:'success', closable: true, summary:'Falha de conexão com servidor', detail: error.error.message } ) ; }
+        );
+    }
+
+    getBases()
+    {
+        this.PickerService.getBases().subscribe(
+            (response) => { 
+                for(let i = 0; i < response.length; i++)
+                {
+                    this.dropDownBases.push({ name: response[i].base, code: response[i].base });
+                }
+             },
+            (error) =>  { this.messageService.add( { life: 4250, sticky: false, severity:'success', closable: true, summary:'Falha de conexão com servidor', detail: error.error.message } ) ; }
         );
     }
 

@@ -21,10 +21,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Api\Home\Controllers\" />
-    <Folder Include="Api\Home\Dtos\" />
-    <Folder Include="Api\Home\Services\" />
-  </ItemGroup>
-
 </Project>

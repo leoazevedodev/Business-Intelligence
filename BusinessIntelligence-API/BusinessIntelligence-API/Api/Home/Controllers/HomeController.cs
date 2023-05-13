@@ -1,15 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessIntelligence_API.Api.Home.Services;
+using BusinessIntelligence_API.Utils;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessIntelligence_API.Api.Home.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<IActionResult> GetKpis()
+        private readonly IHomeServices _home;
+        public HomeController(IHomeServices home)
+        {
+            _home = home;
+        }
+        [HttpPost]
+        [Route("api/v1/home/kpis")]
+        public async Task<IActionResult> GetKpis([FromBody] Request req)
         {
             try
             {
+                var response = await _home.GetKpis(req);
 
-                return Ok();
+                return Ok(response);
             }
             catch(Exception ex)
             {

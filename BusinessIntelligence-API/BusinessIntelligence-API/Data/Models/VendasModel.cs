@@ -11,7 +11,7 @@ namespace BusinessIntelligence_API.Data.Models
         public string Loja { get; set; }
         public string UF { get; set; }
         public string Canal { get; set; }
-        public string Data { get; set; }
+        public int Data { get; set; }
         public string Base { get; set; }
         public decimal ValorTotal { get; set; }
         public decimal ValorTotalApp { get; set; }

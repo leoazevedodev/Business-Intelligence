@@ -6,6 +6,7 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EChartsOption } from 'echarts';
+import { DeshBoardService } from './deshboard.service';
 
 
 @Component({
@@ -158,32 +159,17 @@ export class DashboardComponent implements OnInit {
     dateinicio!: number;
     
     constructor(
-                public layoutService: LayoutService,
-                public messageService: MessageService,
-                public dialogService: DialogService,
+                private layoutService: LayoutService,
+                private deshboardService: DeshBoardService,
+                private messageService: MessageService,
+                private dialogService: DialogService,
                 private AuthService: AuthService,
                 private router: Router)
                  {
     }
 
-    show()
-    {
-        
-        const data = new Date(this.dateinicio);
-
-        const dia = data.getDate();
-        const mes = data.getMonth(); 
-        const ano = data.getFullYear();
-
-        if(dia < 10)
-        {
-            // const dia = '0' + dia;
-        }
-
-        console.log(dia, mes, ano);
-    }
-    
     ngOnInit() {
+        // this.getKpis();
 
         this.cities = [
             { name: 'Varejo', code: 'NY' },
@@ -212,7 +198,6 @@ export class DashboardComponent implements OnInit {
                 }
             ]
         };
-
 
         this.options2 = {
             plugins: {
@@ -254,7 +239,6 @@ export class DashboardComponent implements OnInit {
             barPercentage: 0.1
         };
         
-
         this.data = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             datasets: [
@@ -320,6 +304,16 @@ export class DashboardComponent implements OnInit {
             },
             barPercentage: 0.1
         };
+    }
+
+    getKpis()
+    {
+        let inicio = localStorage.getItem('dataInicio')!;
+        let fim = localStorage.getItem('dataFim')!;
+        this.deshboardService.getKpis(inicio, fim).subscribe(
+            (response) => {  },
+            (error) =>  { this.messageService.add( { life: 4250, sticky: false, severity:'success', closable: true, summary:'Falha de conexão com servidor', detail: error.error.message } ) ; }
+        );
     }
 }
 

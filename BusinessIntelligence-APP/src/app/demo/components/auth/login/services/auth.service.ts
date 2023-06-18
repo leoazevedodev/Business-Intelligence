@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
 import { TokenService } from "./token.service";
 import { environment, TOKEN_STORAGE } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { TokenService } from "./token.service";
 
 @Injectable({
@@ -30,14 +30,13 @@ export class AuthService {
   }
 
   login(login: Credentials) {
-    const url = `${environment.apiUrl}api/auth/login`;
+    const url = `${environment.apiUrl}api/v1/auth/login`;
     return this.http.post<UsuarioLogin>(url, login).pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         this.usuario = user;
         let teste =JSON.stringify(this.usuario);
         let token = user.token.toString();
         localStorage.setItem('user', teste);
-
         this.userSubject.next(user);
         return user; 
     }));
@@ -54,15 +53,15 @@ export class AuthService {
     return this.userSubject.value;
   }
 
-  verificarAdministrador() : boolean 
-  {
-    const permissoes = this.userSubject.value?.usuario.map(x => x.permissao);
-    if(permissoes?.includes('Administrador')) {
-      return true;
-    }  else {
-      return false;
-    }
+  // verificarAdministrador() : boolean 
+  // {
+  //   const permissoes = this.userSubject.value?.usuario.map(x => x.permissao);
+  //   if(permissoes?.includes('Administrador')) {
+  //     return true;
+  //   }  else {
+  //     return false;
+  //   }
 
-  }
+  // }
 
 }

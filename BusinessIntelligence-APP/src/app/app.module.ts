@@ -19,8 +19,8 @@ import { MessageService } from 'primeng/api';
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-        // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
          MessageService
     ],
     bootstrap: [AppComponent]

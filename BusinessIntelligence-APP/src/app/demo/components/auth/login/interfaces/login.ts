@@ -1,22 +1,19 @@
 export interface UsuarioLogin {
     token: string;
-    usuario: Usuarios[];
+    usuario: Usuarios;
 
 }
 
 export interface Usuarios {
     id: number;
     nome: string;
-    senha: string;
     email: string;
+    senha: string;
+    vendedora: boolean;
+    foto: string;
     telefone: string;
-    pais: string;
-    estado: string;
-    cidade: string;
-    status: boolean;
-    permissao: string;
-    update: Date;
-    create: Date;
+    exp: number;
+    ativo: boolean;
 }
 
 export interface Credentials {

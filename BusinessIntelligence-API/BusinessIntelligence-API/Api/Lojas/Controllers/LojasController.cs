@@ -1,8 +1,10 @@
 ﻿using BusinessIntelligence_API.Api.Lojas.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessIntelligence_API.Api.Lojas.Controllers
 {
+    [Authorize]
     public class LojasController : ControllerBase
     {
         private readonly ILojasServices _lojas;
@@ -27,6 +29,7 @@ namespace BusinessIntelligence_API.Api.Lojas.Controllers
             }
         }
 
+        //[Authorize(policy: "Admin")]
         [HttpGet]
         [Route("api/v1/lojas")]
         public async Task<IActionResult> GetLojas()

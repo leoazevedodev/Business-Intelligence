@@ -54,7 +54,7 @@ export class LoginComponent {
         .subscribe({
             next: () => {
                 // get return url from route parameters or default to '/'
-                this.router.navigate(['/']);
+                this.router.navigate(['business/home']);
             },
             error: error => {
                 this.MessageService.add({severity:'error', summary:'Falha ao Autenticar', detail:'Usuário ou Senhas Inválidos'});

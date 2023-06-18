@@ -1,4 +1,6 @@
 ﻿using BusinessIntelligence_API.Data.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -12,18 +14,66 @@ namespace BusinessIntelligence_API.Data
 
         public DbSet<VendasModel> Vendas { get; set; }
         public DbSet<LojasModel> Lojas { get; set; }
+        public DbSet<UsuariosModel> Usuarios { get; set; }  
 
         protected override void OnModelCreating(ModelBuilder builder)
-        {
+        {   
+            base.OnModelCreating(builder);
+
             VendasBuilder(builder);
 
             LojasBuilder(builder);
+
+            UsuariosBuilder(builder);
         }
 
         private static void LojasBuilder(ModelBuilder builder)
         {
             builder.Entity<VendasModel>()
                 .HasIndex(x => x.Lojaid);
+        }
+
+        private static void UsuariosBuilder(ModelBuilder builder)
+        {
+            builder.Entity<UsuariosModel>()
+                .HasIndex(x => x.Id)
+                .IsUnique();
+
+            builder.Entity<UsuariosModel>()
+                .HasIndex(x => x.Email)
+                .IsUnique();
+
+            builder.Entity<UsuariosModel>()
+                .HasIndex(x => x.Nome);
+
+            builder.Entity<UsuariosModel>()
+                .Property(x => x.Senha)
+                .IsRequired();
+
+            builder.Entity<UsuariosModel>()
+                .Property(x => x.Nome)
+                .HasMaxLength(150)
+                .IsRequired();
+
+            builder.Entity<UsuariosModel>()
+                .Property(x => x.Email)
+                .HasMaxLength(150)
+                .IsRequired();
+
+            builder.Entity<UsuariosModel>()
+                .Property(x => x.Senha)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            builder.Entity<UsuariosModel>()
+                .Property(x => x.Telefone)
+                .HasMaxLength(25)
+                .IsRequired();
+
+            builder.Entity<UsuariosModel>()
+                .Property(x => x.Foto)
+                .IsRequired(false)
+                .HasMaxLength(500);
         }
 
         private static void VendasBuilder(ModelBuilder builder)

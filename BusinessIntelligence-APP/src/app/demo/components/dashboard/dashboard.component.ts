@@ -7,6 +7,7 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EChartsOption } from 'echarts';
 import { DeshBoardService } from './deshboard.service';
+import { comparativo, kpis } from './deshboard';
 
 
 @Component({
@@ -141,8 +142,10 @@ export class DashboardComponent implements OnInit {
         ]
       };
 
-    gaugeValue = 60.5;
+    gaugeValueComparativo = 0.00;
     gaugeAppendText = "%";
+
+    alturaComparativoSpan: string = '0%';
 
     cities: any[] = [];
 
@@ -157,19 +160,38 @@ export class DashboardComponent implements OnInit {
     position!: string;
 
     dateinicio!: number;
-    
+
+    kpis: kpis = {
+        pa: 0.00,
+        paCrescimento: '',
+        pmv: 0.00,
+        pmvCrescimento: '',
+        markup: 0.00,
+        markupCrescimento: '',
+        ticketmedio: 0.00,
+        ticketmedioCrescimento: ''
+    };
+
+    comparativo: comparativo = {
+        valorTotal: 0.00,
+        valorTotalAnoPassado: 0.00,
+        crescimento: ''
+    }
+
+    ratingPa = false;
+    ratingPmv = false;
+    ratingMarkup = false;
+    ratingTicketMedio = false;
+
     constructor(
-                private layoutService: LayoutService,
                 private deshboardService: DeshBoardService,
-                private messageService: MessageService,
-                private dialogService: DialogService,
-                private AuthService: AuthService,
-                private router: Router)
+                private messageService: MessageService)
                  {
     }
 
     ngOnInit() {
-        // this.getKpis();
+        this.getKpis();
+        this.getComparativo();
 
         this.cities = [
             { name: 'Varejo', code: 'NY' },
@@ -306,14 +328,80 @@ export class DashboardComponent implements OnInit {
         };
     }
 
-    getKpis()
+    search()
+    {
+        this.getKpis();
+        this.getComparativo();
+    }
+
+    gerarRequest()
     {
         let inicio = localStorage.getItem('dataInicio')!;
         let fim = localStorage.getItem('dataFim')!;
-        this.deshboardService.getKpis(inicio, fim).subscribe(
-            (response) => {  },
+        let bases = ["Atacado", "Defeito", "Outlet", "Shopping"];
+        let lojas = JSON.parse(localStorage.getItem('lojaids')!);
+        let request = {
+            inicio: inicio,
+            fim: fim,
+            bases: bases,
+            lojaids: lojas
+        };
+
+        return request;
+    }
+
+    getKpis()
+    {
+        this.deshboardService.getKpis(this.gerarRequest()).subscribe(
+            (response) => 
+            { 
+                this.kpis = response;
+                this.verificarRatingKpis();
+            },
             (error) =>  { this.messageService.add( { life: 4250, sticky: false, severity:'success', closable: true, summary:'Falha de conexão com servidor', detail: error.error.message } ) ; }
         );
+    }
+
+    getComparativo()
+    {
+        this.deshboardService.getComparativo(this.gerarRequest()).subscribe(
+            (response) => 
+            { 
+                this.comparativo = response;
+                this.gaugeValueComparativo = parseFloat((this.comparativo.valorTotal / this.comparativo.valorTotalAnoPassado * 100).toFixed(2));
+                this.alturaComparativoSpan = parseFloat((this.comparativo.valorTotalAnoPassado / this.comparativo.valorTotal * 100).toFixed(2)).toString() + '%';
+                // this.verificarRating();
+            },
+            (error) =>  { this.messageService.add( { life: 4250, sticky: false, severity:'success', closable: true, summary:'Falha de conexão com servidor', detail: error.error.message } ) ; }
+        );
+    }
+
+    verificarRatingKpis()
+    {
+        if(this.kpis.paCrescimento.includes('-'))
+        {
+            this.ratingPa = true;
+        }else{
+            this.ratingPa = false;
+        }
+        if(this.kpis.pmvCrescimento.includes('-'))
+        {
+            this.ratingPmv = true;
+        }else{
+            this.ratingPmv = false;
+        }
+        if(this.kpis.markupCrescimento.includes('-'))
+        {
+            this.ratingMarkup = true;
+        }else{
+            this.ratingMarkup = false;
+        }
+        if(this.kpis.ticketmedioCrescimento.includes('-'))
+        {
+            this.ratingTicketMedio = true;
+        }else{
+            this.ratingTicketMedio = false;
+        }
     }
 }
 

@@ -26,5 +26,20 @@ namespace BusinessIntelligence_API.Api.Home.Controllers
                 return BadRequest(new { Message  = ex.Message });
             }
         }
+        [HttpPost]
+        [Route("api/v1/home/comparativo")]
+        public async Task<IActionResult> GetComparativo([FromBody] Request req)
+        {
+            try
+            {
+                var response = await _home.GetComparativo(req);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+        }
     }
 }

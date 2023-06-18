@@ -6,5 +6,6 @@ namespace BusinessIntelligence_API.Api.Home.Services
     public interface IHomeServices
     {
         Task<KpisView> GetKpis(Request req);
+        Task<ComparativoView> GetComparativo(Request req);
     }
 }

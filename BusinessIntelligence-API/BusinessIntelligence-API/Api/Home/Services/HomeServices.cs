@@ -19,5 +19,12 @@ namespace BusinessIntelligence_API.Api.Home.Services
 
             return response;
         }
+
+        public async Task<ComparativoView> GetComparativo(Request req)
+        {
+            var response = await new HomeBuilder(_context).GetComparativo(req);
+
+            return response;
+        }
     }
 }

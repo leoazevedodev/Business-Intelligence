@@ -82,7 +82,6 @@ export class PickerComponent implements OnInit {
     }
 
     show() {
-        console.log('chamou');
         this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
     }
 

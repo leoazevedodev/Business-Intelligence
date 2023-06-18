@@ -18,7 +18,7 @@
 
 
 <p-dialog 
-    [transitionOptions]="'1.2s cubic-bezier(0, 0, 0.2, 1)'" 
+    [transitionOptions]="'0.5s cubic-bezier(0, 0, 0.2, 1)'" 
     [visible]="displayDatePicker" 
     [position]="positionDate" 
     [modal]="true" 
@@ -42,7 +42,7 @@
 </p-dialog>
 
 <p-dialog 
-    [transitionOptions]="'1.2s cubic-bezier(0, 0, 0.2, 1)'" 
+    [transitionOptions]="'0.5s cubic-bezier(0, 0, 0.2, 1)'" 
     [(visible)]="displayLojaPicker" 
     [position]="positionLoja" 
     [modal]="true" 
@@ -125,7 +125,7 @@
 
 
 <div class="tam flex flex-wrap flex-row-reverse">
-    <p-button class="button-search flex align-items-center justify-content-center" icon="pi pi-search" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
+    <!-- <p-button class="button-search flex align-items-center justify-content-center" icon="pi pi-search" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button> -->
 
     <div (click)="showDialogLoja('bottom')" class="container m-2">
         <div class="texto">

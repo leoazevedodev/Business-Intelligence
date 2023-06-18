@@ -1,4 +1,9 @@
-<app-picker></app-picker>
+
+<div class="tam flex flex-wrap flex-row-reverse">
+    <p-button (click)="search()" class="button-search flex align-items-center justify-content-center" icon="pi pi-search" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
+    <app-picker></app-picker>
+</div>
+<p-toast></p-toast>
 
     <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-5">
         <li>
@@ -17,132 +22,33 @@
             <div class="cardGauge">
                 <div class="flex justify-content-between mb-3">
                     <div>
-                        <span class="text-1xl">Novo Card</span>
-                        <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
+                        <span class="text-1xl">Comparativo</span>
+                        <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">{{ comparativo.crescimento }}</p-tag>
                     </div>
                     <div class="-mt-4 -mr-4 flex align-items-center justify-content-center border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i pTooltip="Comparação de vendas do ano passado com ano atual" class="pi pi-question text-blue-500 text-xl"></i>
+                        <i pTooltip="Comparação de vendas do ano atual com ano passado" class="pi pi-question text-blue-500 text-xl"></i>
                     </div>
                 </div>
                 <div class="flex justify-content-center">
-                    <ngx-gauge class="mt-2" [thick]="2" [foregroundColor]="'rgba(133, 169, 255)'" [size]="100" [type]="'full'" [value]="gaugeValue" [append]="gaugeAppendText"> </ngx-gauge>
+                    <ngx-gauge class="mt-2" [thick]="2" [foregroundColor]="'rgba(133, 169, 255)'" [size]="100" [type]="'full'" [value]="gaugeValueComparativo" [append]="gaugeAppendText"> </ngx-gauge>
                     <div class="ml-7 mt-2 bar-chart">
                         <div class="bar-1" style="height: 100%;">
-                          <span class="bar-label">80%</span>
+                          <span class="bar-label">{{ comparativo.valorTotal }}</span>
                         </div>
-                        <div class="bar-2" style="height: 50%;">
-                          <span class="bar-label">50%</span>
+                        <div class="bar-2" [style.height]="alturaComparativoSpan">
+                          <span class="bar-label">{{ comparativo.valorTotalAnoPassado }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="flex align-items-center mt-3 mb-2">
                     <div style="background: rgb(255, 204, 133);" class="bullet-item mr-2"></div>
-                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
-                    <span style="color: 'rgb(255, 204, 133)'">2555</span>
+                    <span class="fw-semi-bold flex-1 mb-0">Valor Total Ano Atual</span>
+                    <span style="color: 'rgb(255, 204, 133)'">{{ comparativo.valorTotal | currency:'BRL' }}</span>
                 </div>
                 <div class="flex align-items-center mb-2">
                     <div style="background: rgba(133, 169, 255);" class="bullet-item mr-2"></div>
-                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
-                    <span style="color: 'rgba(133, 169, 255)'">2555</span>
-                </div>
-            </div>
-
-            <div class="cardGauge">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="text-1xl">Novo Card</span>
-                        <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
-                    </div>
-                    <div class="-mt-4 -mr-4 flex align-items-center justify-content-center border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i pTooltip="Comparação de vendas do ano passado com ano atual" class="pi pi-question text-blue-500 text-xl"></i>
-                    </div>
-                </div>
-                <div class="flex justify-content-center">
-                    <ngx-gauge class="mt-2" [thick]="2" [foregroundColor]="'rgba(133, 169, 255)'" [size]="100" [type]="'full'" [value]="gaugeValue" [append]="gaugeAppendText"> </ngx-gauge>
-                    <div class="ml-7 mt-2 bar-chart">
-                        <div class="bar-1" style="height: 100%;">
-                          <span class="bar-label">80%</span>
-                        </div>
-                        <div class="bar-2" style="height: 50%;">
-                          <span class="bar-label">50%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex align-items-center mt-3 mb-2">
-                    <div style="background: rgb(255, 204, 133);" class="bullet-item mr-2"></div>
-                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
-                    <span style="color: 'rgb(255, 204, 133)'">2555</span>
-                </div>
-                <div class="flex align-items-center mb-2">
-                    <div style="background: rgba(133, 169, 255);" class="bullet-item mr-2"></div>
-                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
-                    <span style="color: 'rgba(133, 169, 255)'">2555</span>
-                </div>
-            </div>
-
-            <div class="cardGauge">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="text-1xl">Novo Card</span>
-                        <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
-                    </div>
-                    <div class="-mt-4 -mr-4 flex align-items-center justify-content-center border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i pTooltip="Comparação de vendas do ano passado com ano atual" class="pi pi-question text-blue-500 text-xl"></i>
-                    </div>
-                </div>
-                <div class="flex justify-content-center">
-                    <ngx-gauge class="mt-2" [thick]="2" [foregroundColor]="'rgba(133, 169, 255)'" [size]="100" [type]="'full'" [value]="gaugeValue" [append]="gaugeAppendText"> </ngx-gauge>
-                    <div class="ml-7 mt-2 bar-chart">
-                        <div class="bar-1" style="height: 100%;">
-                          <span class="bar-label">80%</span>
-                        </div>
-                        <div class="bar-2" style="height: 50%;">
-                          <span class="bar-label">50%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex align-items-center mt-3 mb-2">
-                    <div style="background: rgb(255, 204, 133);" class="bullet-item mr-2"></div>
-                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
-                    <span style="color: 'rgb(255, 204, 133)'">2555</span>
-                </div>
-                <div class="flex align-items-center mb-2">
-                    <div style="background: rgba(133, 169, 255);" class="bullet-item mr-2"></div>
-                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
-                    <span style="color: 'rgba(133, 169, 255)'">2555</span>
-                </div>
-            </div>
-
-            <div class="cardGauge">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="text-1xl">Novo Card</span>
-                        <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
-                    </div>
-                    <div class="-mt-4 -mr-4 flex align-items-center justify-content-center border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i pTooltip="Comparação de vendas do ano passado com ano atual" class="pi pi-question text-blue-500 text-xl"></i>
-                    </div>
-                </div>
-                <div class="flex justify-content-center">
-                    <ngx-gauge class="mt-2" [thick]="2" [foregroundColor]="'rgba(133, 169, 255)'" [size]="100" [type]="'full'" [value]="gaugeValue" [append]="gaugeAppendText"> </ngx-gauge>
-                    <div class="ml-7 mt-2 bar-chart">
-                        <div class="bar-1" style="height: 100%;">
-                          <span class="bar-label">80%</span>
-                        </div>
-                        <div class="bar-2" style="height: 50%;">
-                          <span class="bar-label">50%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex align-items-center mt-3 mb-2">
-                    <div style="background: rgb(255, 204, 133);" class="bullet-item mr-2"></div>
-                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
-                    <span style="color: 'rgb(255, 204, 133)'">2555</span>
-                </div>
-                <div class="flex align-items-center mb-2">
-                    <div style="background: rgba(133, 169, 255);" class="bullet-item mr-2"></div>
-                    <span class="fw-semi-bold flex-1 mb-0">Percentage discount</span>
-                    <span style="color: 'rgba(133, 169, 255)'">2555</span>
+                    <span class="fw-semi-bold flex-1 mb-0">Valor Total Ano Passado</span>
+                    <span style="color: 'rgba(133, 169, 255)'">{{ comparativo.valorTotalAnoPassado | currency:'BRL'  }}</span>
                 </div>
             </div>
 
@@ -331,57 +237,114 @@
                     <div class="card">
                         <div class="flex justify-content-between mb-4">
                             <div>
-                                <span class="text-1xl">Novo Card</span>
-                                <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag>
+                                <span class="text-1xl">Kpis</span>
+                                <!-- <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag> -->
                             </div>
                             <div class="-mt-4 -mr-4 flex align-items-center justify-content-center border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
                                 <i class="pi pi-question text-blue-500 text-xl"></i>
                             </div>
                         </div>
                         <div class="grid">
-                            <div class="col-12 md:col-6 lg:col-3">
-                                <div class="card relative">
-                                    <span class="font-medium line-height-1"> P.A </span>
-                                    <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(243 95 95)','background': 'linear-gradient(74deg, rgb(245 160 160 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(243 89 102)'}" [rounded]="true"> - 25.5%</p-tag>
-                                    <div class="flex justify-content-between align-items-center">
-                                        <div class="line-height-4 text-4xl">2.35</div>
+                            <ng-container *ngIf="ratingPa == true">
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <div class="card relative">
+                                        <span class="font-medium line-height-1"> P.A </span>
+                                        <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(243 95 95)','background': 'linear-gradient(74deg, rgb(245 160 160 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(243 89 102)'}" [rounded]="true">{{ kpis.paCrescimento }}</p-tag>
+                                        <div class="flex justify-content-between align-items-center">
+                                            <div class="line-height-4 text-4xl">{{ kpis.pa }}</div>
+                                        </div>
+                                        <img src="./../../../../assets/layout/images/rate.svg" class="absolute" style="bottom: 14px; right: 12px;">
                                     </div>
-                                    <img src="./../../../../assets/layout/images/rate.svg" class="absolute" style="bottom: 14px; right: 12px;">
                                 </div>
-                            </div>
+                            </ng-container>
+                            <ng-container *ngIf="ratingPa == false">
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <div class="card relative">
+                                        <span class="font-medium line-height-1"> P.A </span>
+                                        <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(93 211 123)','background': 'linear-gradient(74deg, rgb(66 193 43 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(107 235 98)'}" [rounded]="true">{{ kpis.paCrescimento }}</p-tag>
+                                        <div class="flex justify-content-between align-items-center">
+                                            <div class="line-height-4 text-4xl">{{ kpis.pa }}</div>
+                                        </div>
+                                        <img src="./../../../../assets/layout/images/positiverate.svg" class="absolute" style="bottom: 14px; right: 12px;">
+                                    </div>
+                                </div>
+                            </ng-container>
 
-                            <div class="col-12 md:col-6 lg:col-3">
-                                <div class="card relative">
-                                    <span class="font-medium line-height-1"> PMV </span>
-                                    <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(93 211 123)','background': 'linear-gradient(74deg, rgb(66 193 43 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(107 235 98)'}" [rounded]="true">+25.5%</p-tag>
-                                    <div class="flex justify-content-between align-items-center">
-                                        <div class="line-height-4 text-4xl">R$306.25</div>
+                            <ng-container *ngIf="ratingPmv == true">
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <div class="card relative">
+                                        <span class="font-medium line-height-1"> P.M.V </span>
+                                        <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(243 95 95)','background': 'linear-gradient(74deg, rgb(245 160 160 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(243 89 102)'}" [rounded]="true">{{ kpis.pmvCrescimento }}</p-tag>
+                                        <div class="flex justify-content-between align-items-center">
+                                            <div class="line-height-4 text-4xl">{{ kpis.pmv }}</div>
+                                        </div>
+                                        <img src="./../../../../assets/layout/images/rate.svg" class="absolute" style="bottom: 14px; right: 12px;">
                                     </div>
-                                    <img src="./../../../../assets/layout/images/positiverate.svg" class="absolute" style="bottom: 14px; right: 12px;">
                                 </div>
-                            </div>
+                            </ng-container>
+                            <ng-container *ngIf="ratingPmv == false">
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <div class="card relative">
+                                        <span class="font-medium line-height-1"> P.M.V </span>
+                                        <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(93 211 123)','background': 'linear-gradient(74deg, rgb(66 193 43 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(107 235 98)'}" [rounded]="true">{{ kpis.pmvCrescimento }}</p-tag>
+                                        <div class="flex justify-content-between align-items-center">
+                                            <div class="line-height-4 text-4xl">{{ kpis.pmv }}</div>
+                                        </div>
+                                        <img src="./../../../../assets/layout/images/positiverate.svg" class="absolute" style="bottom: 14px; right: 12px;">
+                                    </div>
+                                </div>
+                            </ng-container>
 
-                            <div class="col-12 md:col-6 lg:col-3">
-                                <div class="card relative">
-                                    <span class="font-medium line-height-1"> MARKUP </span>
-                                    <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(243 95 95)','background': 'linear-gradient(74deg, rgb(245 160 160 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(243 89 102)'}" [rounded]="true"> - 25.5%</p-tag>
-                                    <div class="flex justify-content-between align-items-center">
-                                        <div class="line-height-4 text-4xl">3.24</div>
+                            <ng-container *ngIf="ratingMarkup == true">
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <div class="card relative">
+                                        <span class="font-medium line-height-1"> MARKUP</span>
+                                        <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(243 95 95)','background': 'linear-gradient(74deg, rgb(245 160 160 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(243 89 102)'}" [rounded]="true">{{ kpis.markupCrescimento }}</p-tag>
+                                        <div class="flex justify-content-between align-items-center">
+                                            <div class="line-height-4 text-4xl">{{ kpis.markup }}</div>
+                                        </div>
+                                        <img src="./../../../../assets/layout/images/rate.svg" class="absolute" style="bottom: 14px; right: 12px;">
                                     </div>
-                                    <img src="./../../../../assets/layout/images/rate.svg" class="absolute" style="bottom: 14px; right: 12px;">
                                 </div>
-                            </div>
+                            </ng-container>
+                            <ng-container *ngIf="ratingMarkup == false">
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <div class="card relative">
+                                        <span class="font-medium line-height-1"> MARKUP</span>
+                                        <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(93 211 123)','background': 'linear-gradient(74deg, rgb(66 193 43 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(107 235 98)'}" [rounded]="true">{{ kpis.markupCrescimento }}</p-tag>
+                                        <div class="flex justify-content-between align-items-center">
+                                            <div class="line-height-4 text-4xl">{{ kpis.markup }}</div>
+                                        </div>
+                                        <img src="./../../../../assets/layout/images/positiverate.svg" class="absolute" style="bottom: 14px; right: 12px;">
+                                    </div>
+                                </div>
+                            </ng-container>
 
-                            <div class="col-12 md:col-6 lg:col-3">
-                                <div class="card relative">
-                                    <span class="font-medium line-height-1"> TICKET MÉDIO </span>
-                                    <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(93 211 123)','background': 'linear-gradient(74deg, rgb(66 193 43 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(107 235 98)'}" [rounded]="true">+25.5%</p-tag>
-                                    <div class="flex justify-content-between align-items-center">
-                                        <div class="line-height-4 text-4xl">R$346.25</div>
+                            <ng-container *ngIf="ratingTicketMedio == true">
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <div class="card relative">
+                                        <span class="font-medium line-height-1"> TICKET MÉDIO </span>
+                                        <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(243 95 95)','background': 'linear-gradient(74deg, rgb(245 160 160 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(243 89 102)'}" [rounded]="true">{{ kpis.ticketmedioCrescimento }}</p-tag>
+                                        <div class="flex justify-content-between align-items-center">
+                                            <div class="line-height-4 text-4xl">{{ kpis.ticketmedio }}</div>
+                                        </div>
+                                        <img src="./../../../../assets/layout/images/rate.svg" class="absolute" style="bottom: 14px; right: 12px;">
                                     </div>
-                                    <img src="./../../../../assets/layout/images/positiverate.svg" class="absolute" style="bottom: 14px; right: 12px;">
                                 </div>
-                            </div>
+                            </ng-container>
+                            <ng-container *ngIf="ratingTicketMedio == false">
+                                <div class="col-12 md:col-6 lg:col-3">
+                                    <div class="card relative">
+                                        <span class="font-medium line-height-1"> TICKET MÉDIO </span>
+                                        <p-tag class="ml-2" [style]="{'height':'1.3rem', 'width': '4rem', 'border': '1px solid rgb(93 211 123)','background': 'linear-gradient(74deg, rgb(66 193 43 / 24%) 100%, rgba(255, 204, 133, 0) 100%)', 'color': 'rgb(107 235 98)'}" [rounded]="true">{{ kpis.ticketmedioCrescimento }}</p-tag>
+                                        <div class="flex justify-content-between align-items-center">
+                                            <div class="line-height-4 text-4xl">{{ kpis.ticketmedio }}</div>
+                                        </div>
+                                        <img src="./../../../../assets/layout/images/positiverate.svg" class="absolute" style="bottom: 14px; right: 12px;">
+                                    </div>
+                                </div>
+                            </ng-container>
+
                         </div>
                         <div class="mt-2" echarts [options]="chartOptionBar"></div>
                     </div>

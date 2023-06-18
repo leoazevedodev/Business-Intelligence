@@ -18,6 +18,7 @@ import { AppSidebarComponent } from "./app.sidebar.component";
 import { AppLayoutComponent } from "./app.layout.component";
 import { CalendarModule } from 'primeng/calendar';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
         RippleModule,
         RouterModule,
         CalendarModule,
-        OverlayPanelModule
+        OverlayPanelModule,
+        DialogModule
     ],
     exports: [AppLayoutComponent]
 })

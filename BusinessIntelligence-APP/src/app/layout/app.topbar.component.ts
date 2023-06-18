@@ -14,6 +14,8 @@ export class AppTopBarComponent {
 
     message: boolean = true;
 
+    openModalUser: boolean = true;
+
     @ViewChild('menubutton') menuButton!: ElementRef;
 
     @ViewChild('topbarmenubutton') topbarMenuButton!: ElementRef;
@@ -34,5 +36,15 @@ export class AppTopBarComponent {
 
     logout(){
         this.auth.logout();
+    }
+
+    abrirUsuarioModal()
+    {
+        this.openModalUser = true;
+    }
+
+    fecharUsuarioModal()
+    {
+        this.openModalUser = false;
     }
 }

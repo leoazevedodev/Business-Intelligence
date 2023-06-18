@@ -1,0 +1,42 @@
+.custom-body {
+    background-image: url('./../../../../../assets/layout/images/bilogin.jpg');
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* opcional: define a ordem de empilhamento da div */
+
+    /* Outras propriedades de estilo */
+}
+
+.card-login {
+    background: rgba(0,0,0,.40);
+    box-shadow: 0 25px 20px -20px rgba(0,0,0,.1), 0 0 15px rgba(0,0,0,.06);
+    opacity: 1;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    
+        &:last-child {
+            margin-bottom: 0;
+        }
+}
+
+.title {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem 
+}
+.subtitle {
+    color: white;
+    font-size: 2rem;
+}
+
+.img-login {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+}

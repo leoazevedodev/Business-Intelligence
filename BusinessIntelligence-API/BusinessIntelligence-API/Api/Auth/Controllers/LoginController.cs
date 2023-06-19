@@ -57,5 +57,5 @@ namespace BusinessIntelligence_API.Api.Auth.Controllers
         }
     }
 
-    public record LoginRequest(string Email, string Senha);
+    public record LoginRequest(string Email, string Senha, bool Vendedora);
 }

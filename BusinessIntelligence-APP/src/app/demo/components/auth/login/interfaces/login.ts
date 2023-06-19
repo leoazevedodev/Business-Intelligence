@@ -19,4 +19,5 @@ export interface Usuarios {
 export interface Credentials {
     email: string;
     senha: string;
+    vendedora: boolean ;
 }

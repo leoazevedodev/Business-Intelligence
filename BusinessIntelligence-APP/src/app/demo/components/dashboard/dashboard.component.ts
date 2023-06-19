@@ -1,19 +1,14 @@
-import { AuthService } from './../auth/login/services/auth.service';
-import { AuthGuard } from './../auth/login/helpers/auth.guard';
-import { CanActivate, Router } from '@angular/router';
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { MenuItem, MessageService } from 'primeng/api';
-import { LayoutService } from 'src/app/layout/service/app.layout.service';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { EChartsOption } from 'echarts';
 import { DeshBoardService } from './deshboard.service';
 import { comparativo, kpis } from './deshboard';
 
-
 @Component({
+    selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss'],
-    providers: [DialogService, MessageService]
+    providers: [MessageService]
 })
 
 export class DashboardComponent implements OnInit {
@@ -183,15 +178,16 @@ export class DashboardComponent implements OnInit {
     ratingMarkup = false;
     ratingTicketMedio = false;
 
-    constructor(
-                private deshboardService: DeshBoardService,
-                private messageService: MessageService)
-                 {
-    }
+    constructor(private deshboardService: DeshBoardService,
+                private messageService: MessageService,
+                private changeDetectorRef: ChangeDetectorRef
+                )
+                 { }
 
     ngOnInit() {
         this.getKpis();
         this.getComparativo();
+        this.showSuccess();
 
         this.cities = [
             { name: 'Varejo', code: 'NY' },
@@ -279,7 +275,6 @@ export class DashboardComponent implements OnInit {
             ]
         };
 
-
         this.options = {
             animations: {
                 tension: {
@@ -326,6 +321,13 @@ export class DashboardComponent implements OnInit {
             },
             barPercentage: 0.1
         };
+    }
+
+    showSuccess() {
+        setTimeout(() => {
+            this.messageService.add({ key: 'myKey1', severity: 'success', summary: 'Service Message', detail: 'Via MessageService' });
+            this.changeDetectorRef.detectChanges();
+        }, 10);
     }
 
     search()

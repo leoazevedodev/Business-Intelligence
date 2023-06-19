@@ -1,38 +1,24 @@
 import { AuthService } from './services/auth.service';
-// import { LoginService } from './services/login.service';
-import { Component, Renderer2, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, Renderer2, ViewEncapsulation } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Credentials, UsuarioLogin } from './interfaces/login';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { ConfirmationService, MessageService } from 'primeng/api';
-import { Title } from '@angular/platform-browser';
-
-
+import { MessageService } from 'primeng/api';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
-        styles: [`
-        :host ::ng-deep .pi-eye,
-        :host ::ng-deep .pi-eye-slash {
-            transform:scale(1.6);
-            margin-right: 1rem;
-            color: var(--primary-color) !important;
-        }
-    `],
-    providers: [MessageService,ConfirmationService]
+    providers: [MessageService]
 })
 export class LoginComponent {
 
     constructor( public layoutService: LayoutService,
                  private router: Router,
                  private AuthService: AuthService,
-                 private MessageService: MessageService,
-                 private ConfirmationService: ConfirmationService,
-                 private renderer: Renderer2,
-                 private titleService: Title ) { }
+                 private messageService: MessageService,
+                 private changeDetectorRef: ChangeDetectorRef
+                 ) { }
 
     valCheck: string[] = ['remember'];
     credentials: Credentials = {} as Credentials;
@@ -43,9 +29,14 @@ export class LoginComponent {
     loading = false;
 
     ngOnInit() {
-        // const body = this.renderer.selectRootElement('body');
-        // this.titleService.setTitle('Business Intelligence');
-        // this.renderer.addClass(body, 'body');
+        this.credentials.vendedora = false;
+    }
+
+    showSuccess() {
+        setTimeout(() => {
+            this.messageService.add({ key: 'myKey1', severity: 'success', summary: 'Service Message', detail: 'Via MessageService' });
+            this.changeDetectorRef.detectChanges();
+        }, 10);
     }
 
     Login () {
@@ -57,7 +48,8 @@ export class LoginComponent {
                 this.router.navigate(['business/home']);
             },
             error: error => {
-                this.MessageService.add({severity:'error', summary:'Falha ao Autenticar', detail:'Usuário ou Senhas Inválidos'});
+                console.log("adasada");
+                this.showSuccess();
                 this.error = error;
                 this.loading = false;
             }

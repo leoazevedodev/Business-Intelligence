@@ -1,4 +1,5 @@
-<p-toast></p-toast>
+<p-toast key="myKey1" position="top-right"></p-toast>
+
 
 <div class="custom-body">
     <div style="margin-top: 9rem;" class=" flex align-items-center justify-content-center">
@@ -19,7 +20,7 @@
 
                     <div class="flex align-items-center justify-content-between mb-5 gap-5">
                         <div class="flex align-items-center">
-                            <p-checkbox id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
+                            <p-checkbox [(ngModel)]="credentials.vendedora" id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
                             <label for="rememberme1">Sou Vendedora</label>
                         </div>
                         <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: white">Forgot password?</a>

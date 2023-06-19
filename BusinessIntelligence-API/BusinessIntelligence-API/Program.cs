@@ -31,6 +31,7 @@ builder.Services
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("fedaf7d8863b48e197b9287d492b708e")),
             ValidateIssuer = false,
+            ClockSkew = TimeSpan.Zero,
             ValidateAudience = false
         };
         //options.TokenValidationParameters = new TokenValidationParameters

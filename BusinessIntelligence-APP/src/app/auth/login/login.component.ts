@@ -22,7 +22,6 @@ export class LoginComponent {
 
     valCheck: string[] = ['remember'];
     credentials: Credentials = {} as Credentials;
-    userprofile: UsuarioLogin = {} as UsuarioLogin;
     
     carregando = false;
     error = '';
@@ -40,19 +39,37 @@ export class LoginComponent {
     }
 
     Login () {
-        this.AuthService.login(this.credentials)
-        .pipe(first())
-        .subscribe({
-            next: () => {
-                // get return url from route parameters or default to '/'
-                this.router.navigate(['business/home']);
-            },
-            error: error => {
-                console.log("adasada");
-                this.showSuccess();
-                this.error = error;
-                this.loading = false;
-            }
-        });
+        if(this.credentials.vendedora == false)
+        {
+            this.AuthService.loginUsuario(this.credentials)
+            .pipe(first())
+            .subscribe({
+                next: () => {
+                    // get return url from route parameters or default to '/'
+                    this.router.navigate(['business/home']);
+                },
+                error: error => {
+                    this.showSuccess();
+                    this.error = error;
+                    this.loading = false;
+                }
+            });  
+        } 
+        else
+        {
+            this.AuthService.loginVendedora(this.credentials)
+            .pipe(first())
+            .subscribe({
+                next: () => {
+                    // get return url from route parameters or default to '/'
+                    this.router.navigate(['business/vendedora/home']);
+                },
+                error: error => {
+                    this.showSuccess();
+                    this.error = error;
+                    this.loading = false;
+                }
+            });
+        }
     }
 }

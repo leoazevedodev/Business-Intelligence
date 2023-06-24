@@ -15,6 +15,7 @@ namespace BusinessIntelligence_API.Data
         public DbSet<VendasModel> Vendas { get; set; }
         public DbSet<LojasModel> Lojas { get; set; }
         public DbSet<UsuariosModel> Usuarios { get; set; }  
+        public DbSet<VendedorasModel> Vendedoras { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {   
@@ -25,6 +26,8 @@ namespace BusinessIntelligence_API.Data
             LojasBuilder(builder);
 
             UsuariosBuilder(builder);
+
+            VendedorasBuilder(builder);
         }
 
         private static void LojasBuilder(ModelBuilder builder)
@@ -71,6 +74,67 @@ namespace BusinessIntelligence_API.Data
                 .IsRequired();
 
             builder.Entity<UsuariosModel>()
+                .Property(x => x.Foto)
+                .IsRequired(false)
+                .HasMaxLength(500);
+        }
+
+        private static void VendedorasBuilder(ModelBuilder builder)
+        {
+            builder.Entity<VendedorasModel>()
+                .HasIndex(x => x.Id)
+                .IsUnique();
+
+            builder.Entity<VendedorasModel>().
+                HasIndex(x => x.LojaId);
+
+            builder.Entity<VendedorasModel>()
+                .HasIndex(x => x.Email)
+                .IsUnique();
+
+            builder.Entity<VendedorasModel>()
+                .HasIndex(x => x.Nome);
+
+            builder.Entity<VendedorasModel>()
+                .Property(x => x.Senha)
+                .IsRequired();
+
+            builder.Entity<VendedorasModel>()
+                .Property(x => x.Nome)
+                .HasMaxLength(150)
+                .IsRequired();
+
+            builder.Entity<VendedorasModel>()
+                .Property(x => x.LojaId)
+                .HasMaxLength(25)
+                .IsRequired();
+
+            builder.Entity<VendedorasModel>()
+                .Property(x => x.Id)
+                .HasMaxLength(25)
+                .IsRequired();
+
+            builder.Entity<VendedorasModel>()
+                .Property(x => x.Fantasia)
+                .HasMaxLength(150)
+                .IsRequired();
+
+            builder.Entity<VendedorasModel>()
+                .Property(x => x.Email)
+                .HasMaxLength(150)
+                .IsRequired();
+
+            builder.Entity<VendedorasModel>()
+                .Property(x => x.Senha)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            builder.Entity<VendedorasModel>()
+                .Property(x => x.Telefone)
+                .HasMaxLength(25)
+                .IsRequired();
+
+            builder.Entity<VendedorasModel>()
                 .Property(x => x.Foto)
                 .IsRequired(false)
                 .HasMaxLength(500);

@@ -1,4 +1,5 @@
-﻿using BusinessIntelligence_API.Api.Home.Services;
+﻿using BusinessIntelligence_API.Api.Auth.Services;
+using BusinessIntelligence_API.Api.Home.Services;
 using BusinessIntelligence_API.Api.Lojas.Services;
 
 namespace BusinessIntelligence_API.Dependencias
@@ -9,6 +10,7 @@ namespace BusinessIntelligence_API.Dependencias
         {
             services.AddTransient<ILojasServices, LojasServices>();
             services.AddTransient<IHomeServices, HomeServices>();
+            services.AddTransient<IAuthService, AuthServices>();
         }
     }
 }

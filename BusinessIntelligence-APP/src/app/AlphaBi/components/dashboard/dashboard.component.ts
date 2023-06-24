@@ -3,6 +3,7 @@ import { MessageService } from 'primeng/api';
 import { EChartsOption } from 'echarts';
 import { DeshBoardService } from './deshboard.service';
 import { comparativo, kpis } from './deshboard';
+import { AuthService } from 'src/app/auth/login/services/auth.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -180,11 +181,14 @@ export class DashboardComponent implements OnInit {
 
     constructor(private deshboardService: DeshBoardService,
                 private messageService: MessageService,
-                private changeDetectorRef: ChangeDetectorRef
+                private changeDetectorRef: ChangeDetectorRef,
+                private authService: AuthService
                 )
                  { }
 
     ngOnInit() {
+        console.log(this.authService.userValue);
+
         this.getKpis();
         this.getComparativo();
         this.showSuccess();

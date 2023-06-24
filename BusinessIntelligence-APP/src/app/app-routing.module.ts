@@ -13,7 +13,7 @@ import { AppLayoutVendedorasComponent } from './AlphaBiVendedoras/layout/app.lay
                 ]   
             },
             {
-                path: 'teste', component: AppLayoutVendedorasComponent,
+                path: 'business/vendedora', component: AppLayoutVendedorasComponent,
                 children: [
                     { path: 'home', loadChildren: () => import('./AlphaBiVendedoras/components/deshboard/deshboard.module').then(m => m.DashboardVendedorasModule) }
                 ]       

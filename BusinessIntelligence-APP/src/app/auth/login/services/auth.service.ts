@@ -1,6 +1,6 @@
 // import { LoginService } from './login.service';
 import jwtDec, * as jwtDecode from 'jwt-decode';
-import { Credentials, UsuarioLogin, Usuarios } from './../interfaces/login';
+import { Credentials, UsuarioLogin, Usuarios, VendedoraLogin } from './../interfaces/login';
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { Router } from "@angular/router";
@@ -16,31 +16,47 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AuthService {
     
     private userSubject: BehaviorSubject<UsuarioLogin | null>;
+    private vendedoraSubject: BehaviorSubject<VendedoraLogin | null>;
     public user: Observable<UsuarioLogin | null>;
 
     private usuario : UsuarioLogin = {} as UsuarioLogin;
+    private vendedora: VendedoraLogin = {} as VendedoraLogin;
 
   constructor(
     private router: Router,
-    private tokenService: TokenService,
     private http: HttpClient
   ) {
     this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
+    this.vendedoraSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
     this.user = this.userSubject.asObservable();
   }
 
-  login(login: Credentials) {
+  loginUsuario(login: Credentials) {
     const url = `${environment.apiUrl}api/v1/auth/login`;
     return this.http.post<UsuarioLogin>(url, login).pipe(map(user => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        this.usuario = user;
-        let teste =JSON.stringify(this.usuario);
-        let token = user.token.toString();
-        localStorage.setItem('user', teste);
-        this.userSubject.next(user);
-        return user; 
+      // store user details and jwt token in local storage to keep user logged in between page refreshes
+      this.usuario = user;
+      let teste =JSON.stringify(this.usuario);
+      let token = user.token.toString();
+      localStorage.setItem('user', teste);
+      this.userSubject.next(user);
+      return user; 
+    })); 
+  }
+
+  loginVendedora(login: Credentials) {
+    const url = `${environment.apiUrl}api/v1/auth/login`;
+    return this.http.post<VendedoraLogin>(url, login).pipe(map(user => {
+      // store user details and jwt token in local storage to keep user logged in between page refreshes
+      this.vendedora = user;
+      let teste =JSON.stringify(this.vendedora);
+      let token = user.token.toString();
+      localStorage.setItem('user', teste);
+      this.vendedoraSubject.next(user);
+      return user; 
     }));
   }
+
 
   logout() {
     // remove user from local storage to log user out
@@ -51,6 +67,10 @@ export class AuthService {
 
   public get userValue() {
     return this.userSubject.value;
+  }
+
+  public get vendedoraUserValue() {
+    return this.vendedoraSubject.value;
   }
 
   // verificarAdministrador() : boolean 

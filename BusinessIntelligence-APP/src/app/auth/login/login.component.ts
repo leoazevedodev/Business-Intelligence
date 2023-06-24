@@ -1,10 +1,10 @@
 import { AuthService } from './services/auth.service';
 import { ChangeDetectorRef, Component, Renderer2, ViewEncapsulation } from '@angular/core';
-import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { Credentials, UsuarioLogin } from './interfaces/login';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { LayoutService } from 'src/app/AlphaBi/layout/service/app.layout.service';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',

@@ -1,21 +1,21 @@
-import { ErrorInterceptor } from './demo/components/auth/login/helpers/error.interceptor';
-import { JwtInterceptor } from './demo/components/auth/login/helpers/jwt.interceptor';
 import { NgModule } from '@angular/core';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AppLayoutModule } from './layout/app.layout.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MessageService } from 'primeng/api';
+import { AppLayoutModule } from './AlphaBi/layout/app.layout.module';
+import { AppLayoutVendedorasModule } from './AlphaBiVendedoras/layout/app.layout.module';
+import { JwtInterceptor } from './auth/login/helpers/jwt.interceptor';
+import { ErrorInterceptor } from './auth/login/helpers/error.interceptor';
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         AppRoutingModule,
-        AppLayoutModule    
+        AppLayoutModule,
+        AppLayoutVendedorasModule
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

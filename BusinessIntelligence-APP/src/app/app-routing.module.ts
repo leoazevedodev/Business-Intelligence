@@ -1,6 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { AppLayoutComponent } from "./layout/app.layout.component";
+import { AppLayoutComponent } from './AlphaBi/layout/app.layout.component';
+import { AppLayoutVendedorasComponent } from './AlphaBiVendedoras/layout/app.layout.component';
 
 @NgModule({
     imports: [
@@ -8,14 +9,16 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
             {
                 path: 'business', component: AppLayoutComponent,
                 children: [
-                    { path: 'home', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) }
-                    
-
+                    { path: 'home', loadChildren: () => import('./AlphaBi/components/dashboard/dashboard.module').then(m => m.DashboardModule) }
                 ]   
             },
-            // { path: 'metas', loadChildren: () => import('./CadastroMetas/cadastro-metas.module').then(m => m.CadastroMetasModule) },
-            { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
-            { path: '**', redirectTo: '/notfound' },
+            {
+                path: 'teste', component: AppLayoutVendedorasComponent,
+                children: [
+                    { path: 'home', loadChildren: () => import('./AlphaBiVendedoras/components/deshboard/deshboard.module').then(m => m.DashboardVendedorasModule) }
+                ]       
+            },
+            { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
         ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule]

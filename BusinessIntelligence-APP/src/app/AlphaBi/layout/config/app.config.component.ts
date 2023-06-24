@@ -4,7 +4,7 @@ import { MenuService } from "../app.menu.service";
 import { Table } from 'primeng/table';
 import { lojas } from './lojasbi';
 import { BehaviorSubject } from 'rxjs';
-import { UsuarioLogin } from 'src/app/demo/components/auth/login/interfaces/login';
+// import { UsuarioLogin } from 'src/app/demo/components/auth/login/interfaces/login';
 
 @Component({
     selector: 'app-config',
@@ -22,10 +22,10 @@ export class AppConfigComponent {
         public layoutService: LayoutService, 
         public menuService: MenuService) 
         {
-            this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
+            // this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
         }
 
-    userSubject!: BehaviorSubject<UsuarioLogin>;
+    // userSubject!: BehaviorSubject<UsuarioLogin>;
 
     buttonCanal!: any[];
 

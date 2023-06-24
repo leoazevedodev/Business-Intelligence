@@ -15,7 +15,6 @@ import { ToastModule } from 'primeng/toast';
 import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
-import { AppConfigModule } from "../../../layout/config/config.module";
 import {DividerModule} from 'primeng/divider';
 import { PickerComponent } from "../picker/picker.component";
 import {TabViewModule} from 'primeng/tabview';
@@ -29,6 +28,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { CheckboxModule } from 'primeng/checkbox';
 import {MultiSelectModule} from 'primeng/multiselect';
+import { AppConfigModule } from '../../layout/config/config.module';
 
 
 @NgModule({
@@ -61,14 +61,14 @@ import {MultiSelectModule} from 'primeng/multiselect';
         ProgressBarModule,
         CheckboxModule,
         MultiSelectModule,
-        // NgxEchartsModule.forRoot({
-        //     /**
-        //      * This will import all modules from echarts.
-        //      * If you only need custom modules,
-        //      * please refer to [Custom Build] section.
-        //      */
-        //     echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
-        //   }),
+        NgxEchartsModule.forRoot({
+            /**
+             * This will import all modules from echarts.
+             * If you only need custom modules,
+             * please refer to [Custom Build] section.
+             */
+            echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
+          }),
     ],
 })
 export class DashboardModule { }

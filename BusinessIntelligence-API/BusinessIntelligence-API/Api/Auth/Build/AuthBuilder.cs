@@ -84,10 +84,10 @@ namespace BusinessIntelligence_API.Api.Auth.Build
 
             var set = await SetCodeBd(email, randomNumber);
 
-            //var response = await _httpclient.PostAsJsonAsync(_httpclient.BaseAddress, new { email = email, codigo = randomNumber });
+            var response = await _httpclient.PostAsJsonAsync(_httpclient.BaseAddress, new { email = email, codigo = randomNumber });
 
-            //if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-            //    throw new Exception("Erro ao enviar código de verificação !");
+            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                throw new Exception("Erro ao enviar código de verificação !");
 
             return new{ Message = "Código de verficação enviado para seu e-mail !" };
 

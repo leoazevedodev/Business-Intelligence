@@ -40,3 +40,7 @@ export interface Credentials {
     senha: string;
     vendedora: boolean ;
 }
+
+export interface Message {
+    message: string;
+}

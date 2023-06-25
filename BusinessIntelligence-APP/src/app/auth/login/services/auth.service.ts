@@ -1,6 +1,6 @@
 // import { LoginService } from './login.service';
 import jwtDec, * as jwtDecode from 'jwt-decode';
-import { Credentials, UsuarioLogin, Usuarios, VendedoraLogin } from './../interfaces/login';
+import { Credentials, Message, UsuarioLogin, Usuarios, VendedoraLogin } from './../interfaces/login';
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { Router } from "@angular/router";
@@ -55,6 +55,18 @@ export class AuthService {
       this.vendedoraSubject.next(user);
       return user; 
     }));
+  }
+
+  esqueciSenha(email: string)
+  {
+    const url = `${environment.apiUrl}api/v1/auth/esqueci-senha?email=${email}`;
+    return this.http.post<Message>(url, email);
+  }
+
+  verificarCodigo(codigo: number)
+  {
+    const url = `${environment.apiUrl}api/v1/auth/verificar-codigo?codigo=${codigo}`;
+    return this.http.post<Message>(url, codigo);
   }
 
 

@@ -10,7 +10,6 @@ namespace BusinessIntelligence_API.Dependencias
         {
             services.AddTransient<ILojasServices, LojasServices>();
             services.AddTransient<IHomeServices, HomeServices>();
-            services.AddTransient<IAuthService, AuthServices>();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace BusinessIntelligence_API.Data
         public DbSet<LojasModel> Lojas { get; set; }
         public DbSet<UsuariosModel> Usuarios { get; set; }  
         public DbSet<VendedorasModel> Vendedoras { get; set; }
+        public DbSet<RecuperarSenhaModel> RecuperarSenha { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {   
@@ -28,12 +29,38 @@ namespace BusinessIntelligence_API.Data
             UsuariosBuilder(builder);
 
             VendedorasBuilder(builder);
+
+            RecuperarSenhaBuilder(builder);
         }
 
         private static void LojasBuilder(ModelBuilder builder)
         {
             builder.Entity<VendasModel>()
                 .HasIndex(x => x.Lojaid);
+        }
+
+        private static void RecuperarSenhaBuilder(ModelBuilder builder)
+        {
+            builder.Entity<RecuperarSenhaModel>()
+                .HasIndex(x => x.Id)
+                .IsUnique();
+
+            builder.Entity<RecuperarSenhaModel>()
+                .HasIndex(x => x.Email);
+
+            builder.Entity<RecuperarSenhaModel>()
+                .Property(x => x.Email)
+                .HasMaxLength(150)
+                .IsRequired();
+
+            builder.Entity<RecuperarSenhaModel>()
+                .Property(x => x.Codigo)
+                .IsRequired();
+
+            builder.Entity<RecuperarSenhaModel>()
+                .Property(x => x.Data)
+                .IsRequired();
+
         }
 
         private static void UsuariosBuilder(ModelBuilder builder)

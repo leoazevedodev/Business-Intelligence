@@ -13,21 +13,61 @@
                 </div>
                 <div>
                     <label for="email1" class="block text-100 text-xl font-medium mb-2">Email</label>
-                    <input [(ngModel)]="credentials.email" id="email1" type="text" placeholder="Email address" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem">
+                    <input [(ngModel)]="credentials.email" id="email1" type="text" placeholder="" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem">
 
-                    <label for="password1" class="block text-100 font-medium text-xl mb-2">Password</label>
-                    <p-password id="password1" [(ngModel)]="credentials.senha" placeholder="Password" [toggleMask]="true" styleClass="mb-5" inputStyleClass="w-full p-3 md:w-30rem"></p-password>
+                    <label for="password1" class="block text-100 font-medium text-xl mb-2">Senha</label>
+                    <p-password id="password1" [(ngModel)]="credentials.senha" placeholder="" [toggleMask]="true" styleClass="mb-5" inputStyleClass="w-full p-3 md:w-30rem"></p-password>
 
                     <div class="flex align-items-center justify-content-between mb-5 gap-5">
                         <div class="flex align-items-center">
                             <p-checkbox [(ngModel)]="credentials.vendedora" id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
                             <label for="rememberme1">Sou Vendedora</label>
                         </div>
-                        <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: white">Forgot password?</a>
+                        <a (click)="abrirModalEsqueciSenha()" class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: white">Esqueceu sua senha?</a>
                     </div>
-                    <button (click)="Login()" pButton pRipple label="Sign In" class="w-full p-3 text-xl"></button>
+                    <button (click)="Login()" pButton pRipple label="Entrar" class="w-full p-3 text-xl"></button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<p-dialog 
+    [transitionOptions]="'0.5s cubic-bezier(0, 0, 0.2, 1)'" 
+    [visible]="displayEsqueciSenha" 
+    [position]="position" 
+    [modal]="true" 
+    [breakpoints]="{'960px': '100vw'}" 
+    [style]="{width: '40rem'}"
+    [draggable]="true">
+     
+    <ng-template pTemplate="content">
+        <div class="mt-3 flex align-items-center justify-content-center">
+            <div>
+                <div class="w-full py-6 px-5 sm:px-8" style="border-radius:53px; text-align: center;">
+                    <div>
+                        <label for="email1" class="block text-100 text-xl font-medium mb-4">Digite abaixo o e-mail para recuperação !</label>
+                        <input [(ngModel)]="emailRecuperacao" id="email1" type="text" placeholder="" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem">
+                    </div>
+
+                    <ng-container *ngIf="inputCodigoVerificacao == true">
+                        <div>
+                            <label for="email1" class="block text-100 text-xl font-medium mb-4">Digite o código enviado pelo e-mail !</label>
+                            <input [(ngModel)]="codigoVerificacao" id="email1" type="text" placeholder="" pInputText class="w-full md:w-6rem mb-5" style="padding:1rem">
+                        </div>
+                    </ng-container> 
+
+                </div>
+            </div>
+        </div>
+        <div class="-mt-4 flex align-items-center justify-content-end">
+            <p-button (click)="fecharModalEsqueciSenha()" class="mr-2 button-search flex align-items-center justify-content-center" icon="pi pi-times" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
+            <ng-container *ngIf="inputCodigoVerificacao == false">
+                <p-button  (onClick)="enviarCodigoParaEmail()" class="button-search flex align-items-center justify-content-center" icon="pi pi-check" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
+            </ng-container>
+            <ng-container *ngIf="inputCodigoVerificacao == true">
+                <p-button  (onClick)="verificarCodigoGerado()" class="button-search flex align-items-center justify-content-center" icon="pi pi-check" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
+            </ng-container>
+        </div>
+    </ng-template>
+</p-dialog>

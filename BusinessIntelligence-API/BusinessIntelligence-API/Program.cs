@@ -1,3 +1,4 @@
+using BusinessIntelligence_API.Api.Auth.Services;
 using BusinessIntelligence_API.Data;
 using BusinessIntelligence_API.Dependencias;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -46,6 +47,12 @@ builder.Services
         //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("fedaf7d8863b48e197b9287d492b708e"))
         //};
     });
+
+builder.Services.AddHttpClient<IAuthService, AuthService>(client =>
+{
+    //client.BaseAddress = new Uri("https://prod-14.brazilsouth.logic.azure.com:443");
+    client.BaseAddress = new Uri("https://prod-14.brazilsouth.logic.azure.com:443/workflows/c5c78d4e3a3e449bb3cc4140a56a418d/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_Lhsq82pwjdALY23tPEJgRxP6Co-Scq4nSPk1kmC2MQ");
+});
 
 builder.Services.AddSwaggerGen(c =>
 {

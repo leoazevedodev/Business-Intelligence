@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apiUrl: ''
+  apiUrl: 'https://business-intelligence-api.azurewebsites.net/'
 };
 
 export const CHECK_IN = 'CHECK_IN';

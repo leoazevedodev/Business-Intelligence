@@ -22,10 +22,10 @@ jobs:
           node-version: '18.x'
 
       - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+        run: cd BusinessIntelligence-APP && npm install
+          
+      - name: npm build
+        run: cd BusinessIntelligence-APP && npm run build
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -53,4 +53,4 @@ jobs:
           app-name: 'business-intelligence'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6F4F262AEF0144F9B1820426D3D04516 }}
-          package: .
+          package: BusinessIntelligence-APP/dist

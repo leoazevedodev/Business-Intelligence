@@ -26,12 +26,15 @@ jobs:
           
       - name: npm build
         run: cd BusinessIntelligence-APP && npm run build
-      
+
+      - name: Archive files
+        run: 7z a archive.zip BusinessIntelligence-APP/dist/*
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: archive.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,4 +56,4 @@ jobs:
           app-name: 'business-intelligence'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6F4F262AEF0144F9B1820426D3D04516 }}
-          package: BusinessIntelligence-APP/dist
+          package: archive.zip

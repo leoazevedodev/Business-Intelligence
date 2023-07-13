@@ -23,16 +23,19 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: cd BusinessIntelligence-API/BusinessIntelligence-API dotnet build --configuration Release
+        run: cd BusinessIntelligence-API/BusinessIntelligence-API && dotnet build --configuration Release
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
+      - name: Archive files
+        run: 7z a archive.zip ${{env.DOTNET_ROOT}}/myapp/*
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          name: dotnet-app
+          path: archive.zip
 
   deploy:
     runs-on: windows-latest
@@ -45,7 +48,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: .net-app
+          name: dotnet-app
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -54,4 +57,4 @@ jobs:
           app-name: 'business-intelligence-api'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D58F16EC624A40ED85469B6C6FB9894B }}
-          package: .
+          package: archive.zip

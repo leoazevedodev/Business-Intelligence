@@ -29,6 +29,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { CheckboxModule } from 'primeng/checkbox';
 import {MultiSelectModule} from 'primeng/multiselect';
 import { AppConfigModule } from '../../layout/config/config.module';
+import { SpeedDialModule } from 'primeng/speeddial';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { AppConfigModule } from '../../layout/config/config.module';
         ProgressBarModule,
         CheckboxModule,
         MultiSelectModule,
+        SpeedDialModule,
         NgxEchartsModule.forRoot({
             /**
              * This will import all modules from echarts.

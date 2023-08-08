@@ -1,6 +1,7 @@
 <p-toast key="myKey1" position="top-right"></p-toast>
 
 
+
 <!-- <div class="not">
     <div class="notification">
         <p>Welcome back, Leonardo !</p>
@@ -8,14 +9,14 @@
     </div>
 </div> -->
 
-
-<div class="tam flex flex-wrap flex-row-reverse">
+<app-picker></app-picker>
+<!-- <div class="tam flex flex-wrap flex-row-reverse">
     <p-button (click)="search()" class="button-search flex align-items-center justify-content-center" icon="pi pi-search" styleClass="p-button-rounded p-button-info p-button-text p-button-raised"></p-button>
     <app-picker></app-picker>
-</div>
+</div> -->
 
 
-    <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-5">
+    <!-- <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-5">
         <li>
             <a style="color: rgba(244,244,245,.9);" class="no-underline line-height-3 cursor-pointer">Business Intelligence</a>
         </li>
@@ -25,11 +26,11 @@
         <li>
             <span style="color:rgba(133, 169, 255)" class="line-height-3">Home</span>
         </li>
-    </ul>
+    </ul> -->
 
     <div class="grid">
         <div class="col-12 md:col-6 lg:col-3">
-            <div class="cardGauge">
+            <!-- <div class="cardGauge">
                 <div class="flex justify-content-between mb-3">
                     <div>
                         <span class="text-1xl">Comparativo</span>
@@ -60,7 +61,7 @@
                     <span class="fw-semi-bold flex-1 mb-0">Valor Total Ano Passado</span>
                     <span style="color: 'rgba(133, 169, 255)'">{{ comparativo.valorTotalAnoPassado | currency:'BRL'  }}</span>
                 </div>
-            </div>
+            </div> -->
 
             <!-- <div class="card">
                 <div class="header line-height-4 font-medium">
@@ -243,18 +244,17 @@
 
         <div class="col-12 lg:col-9">
             <div class="grid">
-                <div class="col-12 lg-6">
+                <!-- <div class="col-12 lg-6">
                     <div class="card">
                         <div class="flex justify-content-between mb-4">
                             <div>
                                 <span class="text-1xl">Kpis</span>
-                                <!-- <p-tag class="ml-2" [style]="{'height':'1.2rem', 'border': '1px solid #FFCC85','background': 'linear-gradient(74deg, rgba(255,204,133,0.23433123249299714) 100%, rgba(255,204,133,0) 100%)', 'color': '#FFCC85'}" [rounded]="true">+25.5%</p-tag> -->
                             </div>
                             <div class="-mt-4 -mr-4 flex align-items-center justify-content-center border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
                                 <i class="pi pi-question text-blue-500 text-xl"></i>
                             </div>
                         </div>
-                        <div class="grid">
+                         <div class="grid">
                             <ng-container *ngIf="ratingPa == true">
                                 <div class="col-12 md:col-6 lg:col-3">
                                     <div class="card relative">
@@ -356,9 +356,9 @@
                             </ng-container>
 
                         </div>
-                        <!-- <div class="mt-2" echarts [options]="chartOptionBar"></div> -->
+                        <div class="mt-2" echarts [options]="chartOptionBar"></div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- <div class="col-12 md:col-6 lg:col-12">
                     <div class="card">

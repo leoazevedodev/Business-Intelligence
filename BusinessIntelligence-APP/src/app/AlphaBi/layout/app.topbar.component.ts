@@ -14,7 +14,7 @@ export class AppTopBarComponent {
 
     message: boolean = true;
 
-    openModalUser: boolean = true;
+    openModalUser: boolean = false;
 
     @ViewChild('menubutton') menuButton!: ElementRef;
 

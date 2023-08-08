@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 import { EChartsOption } from 'echarts';
 import { DeshBoardService } from './deshboard.service';
 import { comparativo, kpis } from './deshboard';
@@ -187,8 +187,6 @@ export class DashboardComponent implements OnInit {
                  { }
 
     ngOnInit() {
-        console.log(this.authService.userValue);
-
         this.getKpis();
         this.getComparativo();
         this.showSuccess();

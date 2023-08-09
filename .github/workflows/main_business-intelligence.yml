@@ -5,7 +5,7 @@ on:
       - main
 env:
   AZURE_WEBAPP_NAME: business-intelligence
-  AZURE_WEBAPP_PACKAGE_PATH: './dist/businessintelligence-ng'
+  AZURE_WEBAPP_PACKAGE_PATH: 'BusinessIntelligence-APP/dist/businessintelligence-ng'
   NODE_VERSION: '18.x'
 
 jobs:

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:7000/'
+  apiUrl: 'https://localhost:65169/'
 };
 
 export const CHECK_IN = 'CHECK_IN';

@@ -3,10 +3,18 @@
     flex-direction: column;
     min-height: 100vh;
     justify-content: space-between;
-    padding: 2rem 2rem 2rem 4rem;
+    padding: 2rem 2rem 2rem 2rem;
     transition: margin-left $transitionDuration;
 }
 
 .layout-main {
     flex: 1 1 auto;
+}
+
+
+@media (max-width: 991px) {
+    .layout-main-container {
+        padding: 2rem 2rem 2rem 2rem;
+
+    }
 }

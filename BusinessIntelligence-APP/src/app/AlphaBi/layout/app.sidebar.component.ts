@@ -13,6 +13,7 @@ export class AppSidebarComponent {
 
     toggleSidebar() {
         this.isSidebarOpen = !this.isSidebarOpen;
+        this.layoutService.onMenuToggle();
     }
 
     logout(){
